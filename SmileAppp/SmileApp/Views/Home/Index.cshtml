@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Bienvenido a SmileApp";
+}
+
+<div class="container-fluid p-0">
+    <!-- Sección de Bienvenida -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">¡Bienvenido a SmileApp!</h1>
+            <p class="lead">Tu sonrisa, nuestra prioridad. Ofrecemos tratamientos dentales de alta calidad.</p>
+            <a href="/Home/Servicios" class="btn btn-light btn-lg">Ver Servicios</a>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="" class="card-img-top" alt="Ortodoncia">
+                        <div class="card-body">
+                            <h5 class="card-title">Ortodoncia</h5>
+                            <p class="card-text">Brackets y alineadores para una sonrisa perfecta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Implantes">
+                        <div class="card-body">
+                            <h5 class="card-title">Implantes Dentales</h5>
+                            <p class="card-text">Recupera tu sonrisa con nuestros implantes dentales de última tecnología.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Blanqueamiento">
+                        <div class="card-body">
+                            <h5 class="card-title">Blanqueamiento Dental</h5>
+                            <p class="card-text">Recupera el brillo natural de tu sonrisa con nuestros tratamientos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Lo que nuestros pacientes dicen</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">"Excelente servicio, muy profesionales. ¡Mi sonrisa nunca estuvo mejor!"</p>
+                            <footer class="blockquote-footer">Carlos M.</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">"Me atendieron de manera rápida y eficiente, el tratamiento fue indoloro y rápido."</p>
+                            <footer class="blockquote-footer">Ana L.</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">"El mejor consultorio dental que he visitado. Totalmente recomendado."</p>
+                            <footer class="blockquote-footer">Juan P.</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="bg-primary text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contáctanos</h2>
+            <form action="#" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" rows="4" placeholder="Tu mensaje"></textarea>
+                </div>
+                <button type="submit" class="btn btn-light">Enviar</button>
+            </form>
+        </div>
+    </section>
+</div>
