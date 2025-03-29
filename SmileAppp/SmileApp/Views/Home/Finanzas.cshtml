@@ -1,9 +1,113 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Finanzas";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Módulo de Finanzas</h1>
-    <p>Aquí podrás gestionar las finanzas de la clínica.</p>
+<div class="container-fluid">
+    <!-- Encabezado del Módulo -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white text-center py-4">
+                    <h1 class="display-4 fw-bold">Módulo de Finanzas</h1>
+                    <p class="lead">Aquí podrás gestionar las finanzas de la clínica, incluyendo ingresos, egresos, reportes y proformas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opciones de Finanzas -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Gestión de Finanzas</h5>
+                    <div class="d-flex justify-content-around">
+                        <!-- Registro de Ingresos -->
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Registro de Ingresos</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ingresos Mensuales</h5>
+                                <p class="card-text">Registra los ingresos provenientes de consultas, tratamientos y otros servicios.</p>
+                                <a href="/Finanzas/RegistrarIngreso" class="btn btn-light">Registrar Ingreso</a>
+                            </div>
+                        </div>
+
+                        <!-- Registro de Egresos -->
+                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Registro de Egresos</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Egresos Mensuales</h5>
+                                <p class="card-text">Registra los egresos de la clínica como pagos a proveedores, sueldos, mantenimiento, etc.</p>
+                                <a href="/Finanzas/RegistrarEgreso" class="btn btn-light">Registrar Egreso</a>
+                            </div>
+                        </div>
+
+                        <!-- Generar Reportes -->
+                        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Generar Reportes</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Reportes Financieros</h5>
+                                <p class="card-text">Genera reportes detallados sobre los ingresos y egresos de la clínica.</p>
+                                <a href="/Finanzas/GenerarReporte" class="btn btn-light">Generar Reporte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generar Proforma -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Generar Proforma</h5>
+                    <p class="card-text">Crea una proforma para los servicios prestados o para los pacientes que se están atendiendo.</p>
+                    <a href="/Finanzas/GenerarProforma" class="btn btn-primary">Generar Proforma</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Listado de Ingresos y Egresos Recientes -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Transacciones Recientes</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Tipo</th>
+                        <th>Monto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo de Transacción -->
+                    <tr>
+                        <td>2025-03-28</td>
+                        <td>Consulta Odontológica - Juan Pérez</td>
+                        <td>Ingreso</td>
+                        <td>$100.00</td>
+                        <td>
+                            <a href="/Finanzas/DetallesTransaccion/1" class="btn btn-info btn-sm">Ver Detalles</a>
+                            <a href="/Finanzas/EliminarTransaccion/1" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2025-03-27</td>
+                        <td>Pago Proveedor - Material Odontológico</td>
+                        <td>Egreso</td>
+                        <td>$200.00</td>
+                        <td>
+                            <a href="/Finanzas/DetallesTransaccion/2" class="btn btn-info btn-sm">Ver Detalles</a>
+                            <a href="/Finanzas/EliminarTransaccion/2" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </div>

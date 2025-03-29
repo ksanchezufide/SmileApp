@@ -1,14 +1,146 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Seguridad y Acceso";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Módulo de Seguridad y Acceso</h1>
-    <p>Aquí podrás gestionar la seguridad y los accesos de la clínica.</p>
+<div class="container-fluid">
+    <!-- Encabezado del Módulo -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white text-center py-4">
+                    <h1 class="display-4 fw-bold">Módulo de Seguridad y Acceso</h1>
+                    <p class="lead">Aquí podrás gestionar la seguridad y los accesos de la clínica, incluyendo la creación, actualización y eliminación de usuarios, así como el manejo de roles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crear Usuario -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Crear Usuario</h5>
+                    <form action="/Seguridad/Crear" method="post">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contraseña" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rol" class="form-label">Rol</label>
+                            <select class="form-select" id="rol" name="rol" required>
+                                <option value="admin">Administrador</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="auxiliar">Auxiliar</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Crear Usuario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buscar Usuario -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Buscar Usuario</h5>
+                    <form action="/Seguridad/Buscar" method="get">
+                        <div class="mb-3">
+                            <label for="buscarUsuario" class="form-label">Buscar por Nombre o Correo</label>
+                            <input type="text" class="form-control" id="buscarUsuario" name="buscarUsuario" required>
+                        </div>
+                        <button type="submit" class="btn btn-info w-100">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Usuarios -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Usuarios Registrados</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Juan Pérez</td>
+                                <td>juan@clinica.com</td>
+                                <td>Administrador</td>
+                                <td>
+                                    <a href="/Seguridad/Editar/1" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="/Seguridad/Eliminar/1" class="btn btn-danger btn-sm">Eliminar</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Ana Gómez</td>
+                                <td>ana@clinica.com</td>
+                                <td>Doctor</td>
+                                <td>
+                                    <a href="/Seguridad/Editar/2" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="/Seguridad/Eliminar/2" class="btn btn-danger btn-sm">Eliminar</a>
+                                </td>
+                            </tr>
+                            <!-- Aquí se agregarían los usuarios dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actualizar Usuario -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Actualizar Usuario</h5>
+                    <form action="/Seguridad/Actualizar" method="post">
+                        <div class="mb-3">
+                            <label for="usuarioId" class="form-label">ID de Usuario</label>
+                            <input type="text" class="form-control" id="usuarioId" name="usuarioId" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nuevoNombre" class="form-label">Nuevo Nombre Completo</label>
+                            <input type="text" class="form-control" id="nuevoNombre" name="nuevoNombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nuevoEmail" class="form-label">Nuevo Correo Electrónico</label>
+                            <input type="email" class="form-control" id="nuevoEmail" name="nuevoEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nuevoRol" class="form-label">Nuevo Rol</label>
+                            <select class="form-select" id="nuevoRol" name="nuevoRol">
+                                <option value="admin">Administrador</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="auxiliar">Auxiliar</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Actualizar Usuario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}

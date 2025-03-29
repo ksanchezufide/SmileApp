@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\Proyecto_SmileApp\\SmileApp\\SmileApp\\SmileApp.csproj",
+      "projectUniqueName": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
       "projectName": "SmileApp",
-      "projectPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\Proyecto_SmileApp\\SmileApp\\SmileApp\\SmileApp.csproj",
+      "projectPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
       "packagesPath": "C:\\Users\\Mateo Rincon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\Proyecto_SmileApp\\SmileApp\\SmileApp\\obj\\",
+      "outputPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mateo Rincon\\AppData\\Roaming\\NuGet\\NuGet.Config",

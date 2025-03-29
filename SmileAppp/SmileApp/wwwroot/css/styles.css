@@ -1,9 +1,42 @@
 ﻿/* Archivo: styles.css */
 
-body {
-    font-family: Arial, sans-serif;
+/* Asegurar que el footer siempre esté en la parte inferior */
+html, body {
+    height: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container.flex-grow-1 {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+    background-color: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+}
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fc;
+}
+
+/* Header */
 header {
     background: #007bff;
     color: white;
@@ -13,42 +46,6 @@ header {
     header h1 {
         font-size: 2.5rem;
     }
-
-section h2 {
-    font-size: 2rem;
-    color: #333;
-}
-
-footer {
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 20px;
-}
-
-    footer a {
-        color: #007bff;
-    }
-
-.card-body {
-    text-align: center;
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-form input, form textarea {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f8fc;
-}
 
 /* Navbar */
 .navbar {
@@ -78,23 +75,7 @@ body {
         color: #ffcb42 !important; /* Un color dorado para los enlaces activos */
     }
 
-/* Footer */
-footer {
-    background-color: #f1f1f1;
-    padding: 20px 0;
-    margin-top: 30px;
-}
-
-    footer a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-/* Estilo para el Dropdown */
+/* Dropdown */
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
@@ -114,3 +95,55 @@ footer {
 .navbar-nav .nav-item {
     margin-right: 15px;
 }
+
+/* Estilos de contenido */
+section h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Tarjetas */
+.card-body {
+    text-align: center;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Formularios */
+form input, form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.footer {
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px 0;
+}
+
+    .footer a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }

@@ -1,9 +1,159 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Inventario de la Clínica";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Módulo de Inventario</h1>
-    <p>Aquí podrás gestionar el inventario de los productos médicos en la clínica.</p>
+<div class="container-fluid">
+    <!-- Encabezado del Módulo -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white text-center py-4">
+                    <h1 class="display-4 fw-bold">Módulo de Inventario</h1>
+                    <p class="lead">Aquí podrás gestionar el inventario de los productos utilizados en el consultorio dental.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resumen del Inventario -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Resumen del Inventario</h5>
+                    <div class="d-flex justify-content-around">
+                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Productos en Stock</div>
+                            <div class="card-body">
+                                <h5 class="card-title">150</h5>
+                                <p class="card-text">Productos disponibles actualmente en el inventario del consultorio.</p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Productos Bajo Stock</div>
+                            <div class="card-body">
+                                <h5 class="card-title">30</h5>
+                                <p class="card-text">Productos que están en niveles bajos y necesitan reabastecerse pronto.</p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Productos Agotados</div>
+                            <div class="card-body">
+                                <h5 class="card-title">5</h5>
+                                <p class="card-text">Productos que ya no están disponibles y necesitan reposición urgente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráfico de Barras del Inventario -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Gráfico de Existencias</h5>
+                    <canvas id="inventoryChart" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Productos -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Productos en Inventario del Consultorio</h2>
+            <div class="row">
+                <!-- Card de Producto A -->
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="https://m.media-amazon.com/images/I/51fviC6qHnL._AC_UF894,1000_QL80_.jpg" class="card-img-top" alt="Espejo Dental">
+                        <div class="card-body">
+                            <h5 class="card-title">Espejo Dental</h5>
+                            <p class="card-text">Espejo utilizado para ver y acceder a las áreas de difícil alcance dentro de la cavidad bucal. Esencial para los procedimientos de diagnóstico.</p>
+                            <p class="text-muted">Stock: 50 unidades</p>
+                            <a href="/Inventario/Detalles/1" class="btn btn-info">Ver Detalles</a>
+                            <a href="/Inventario/Editar/1" class="btn btn-warning">Editar</a>
+                            <a href="/Inventario/Eliminar/1" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card de Producto B -->
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="https://previews.123rf.com/images/sherbakvolodymir/sherbakvolodymir1801/sherbakvolodymir180100080/93197721-dentista-de-mano-y-pinzas-dentales-en-cl%C3%ADnica.jpg" class="card-img-top" alt="Pinzas Quirúrgicas">
+                        <div class="card-body">
+                            <h5 class="card-title">Pinzas Quirúrgicas</h5>
+                            <p class="card-text">Pinzas diseñadas para sujetar y manipular tejidos blandos o materiales durante procedimientos quirúrgicos dentales.</p>
+                            <p class="text-muted">Stock: 30 unidades</p>
+                            <a href="/Inventario/Detalles/2" class="btn btn-info">Ver Detalles</a>
+                            <a href="/Inventario/Editar/2" class="btn btn-warning">Editar</a>
+                            <a href="/Inventario/Eliminar/2" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card de Producto C -->
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="https://veladent.es/2472-large_default/v216n.jpg" class="card-img-top" alt="Sonda Periodontal">
+                        <div class="card-body">
+                            <h5 class="card-title">Sonda Periodontal</h5>
+                            <p class="card-text">Herramienta utilizada para medir la profundidad de las bolsas periodontales, esencial para el diagnóstico de enfermedades periodontales.</p>
+                            <p class="text-muted">Stock: 20 unidades</p>
+                            <a href="/Inventario/Detalles/3" class="btn btn-info">Ver Detalles</a>
+                            <a href="/Inventario/Editar/3" class="btn btn-warning">Editar</a>
+                            <a href="/Inventario/Eliminar/3" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card de Producto D -->
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="https://dentpro.es/7139-medium_default/canula-aspiracion-2902-1u.jpg" class="card-img-top" alt="Cánula de Aspiración">
+                        <div class="card-body">
+                            <h5 class="card-title">Cánula de Aspiración</h5>
+                            <p class="card-text">Instrumento utilizado para succionar fluidos y restos durante procedimientos dentales, facilitando la visibilidad y limpieza del área de trabajo.</p>
+                            <p class="text-muted">Stock: 5 unidades</p>
+                            <a href="/Inventario/Detalles/4" class="btn btn-info">Ver Detalles</a>
+                            <a href="/Inventario/Editar/4" class="btn btn-warning">Editar</a>
+                            <a href="/Inventario/Eliminar/4" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="/Inventario/Agregar" class="btn btn-success">Agregar Producto</a>
+            </div>
+        </div>
+    </section>
 </div>
+
+<!-- Script para el Gráfico de Existencias -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Crear el gráfico de barras
+    var ctx = document.getElementById('inventoryChart').getContext('2d');
+    var inventoryChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Espejo Dental', 'Pinzas Quirúrgicas', 'Sonda Periodontal', 'Cánula de Aspiración'],
+            datasets: [{
+                label: 'Cantidad en Stock',
+                data: [50, 30, 20, 5], // Las cantidades de cada producto
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

@@ -1,9 +1,145 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Citas Médicas";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Módulo de Citas Médicas</h1>
-    <p>Aquí podrás gestionar las citas médicas de los pacientes.</p>
+<div class="container-fluid">
+    <!-- Encabezado del Módulo -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white text-center py-4">
+                    <h1 class="display-4 fw-bold">Módulo de Citas Médicas</h1>
+                    <p class="lead">Aquí podrás gestionar las citas médicas de los pacientes de la clínica.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resumen de Citas -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Resumen de Citas</h5>
+                    <p class="text-muted">En este resumen, puedes ver el estado actual de las citas y las próximas programadas.</p>
+                    <div class="d-flex justify-content-around">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Citas Confirmadas</div>
+                            <div class="card-body">
+                                <h5 class="card-title">5</h5>
+                                <p class="card-text">Citas que están confirmadas para los próximos días.</p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Citas Pendientes</div>
+                            <div class="card-body">
+                                <h5 class="card-title">2</h5>
+                                <p class="card-text">Citas pendientes por confirmar.</p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Citas Canceladas</div>
+                            <div class="card-body">
+                                <h5 class="card-title">1</h5>
+                                <p class="card-text">Citas que han sido canceladas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Citas Médicas -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Lista de Citas Médicas</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID de Cita</th>
+                        <th>Paciente</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí irían las citas dinámicamente -->
+                    <tr>
+                        <td>CIT001</td>
+                        <td>Juan Pérez</td>
+                        <td>2025-03-25</td>
+                        <td>10:00 AM</td>
+                        <td><span class="badge bg-success">Confirmada</span></td>
+                        <td>
+                            <a href="/Citas/Detalles/CIT001" class="btn btn-info btn-sm">Ver Detalles</a>
+                            <a href="/Citas/Editar/CIT001" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="/Citas/Eliminar/CIT001" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/Citas/Notificar/CIT001" class="btn btn-info btn-sm">Notificar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CIT002</td>
+                        <td>Ana Gómez</td>
+                        <td>2025-03-26</td>
+                        <td>12:30 PM</td>
+                        <td><span class="badge bg-warning">Pendiente</span></td>
+                        <td>
+                            <a href="/Citas/Detalles/CIT002" class="btn btn-info btn-sm">Ver Detalles</a>
+                            <a href="/Citas/Editar/CIT002" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="/Citas/Eliminar/CIT002" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/Citas/Notificar/CIT002" class="btn btn-info btn-sm">Notificar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CIT003</td>
+                        <td>Carlos Martínez</td>
+                        <td>2025-03-27</td>
+                        <td>03:00 PM</td>
+                        <td><span class="badge bg-danger">Cancelada</span></td>
+                        <td>
+                            <a href="/Citas/Detalles/CIT003" class="btn btn-info btn-sm">Ver Detalles</a>
+                            <a href="/Citas/Editar/CIT003" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="/Citas/Eliminar/CIT003" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/Citas/Notificar/CIT003" class="btn btn-info btn-sm">Notificar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Calendario de Citas -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Calendario de Citas</h5>
+                    <p class="text-center">Aquí puedes ver todas las citas agendadas para la clínica dental.</p>
+                    <div id="calendar" class="calendar-container"></div> <!-- Aquí irá el calendario -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<!-- Script para Calendario -->
+<script>
+    // Aquí iría el código para renderizar el calendario (puedes integrar una librería de calendario como FullCalendar.js o similar)
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarEl = document.getElementById('calendar');
+        // Ejemplo usando FullCalendar.js
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: [
+                { title: 'Cita con Juan Pérez', start: '2025-03-25T10:00:00' },
+                { title: 'Cita con Ana Gómez', start: '2025-03-26T12:30:00' },
+                { title: 'Cita con Carlos Martínez', start: '2025-03-27T15:00:00' }
+            ]
+        });
+        calendar.render();
+    });
+</script>
