@@ -59,3 +59,34 @@ C:\Users\Mateo Rincon\OneDrive\Escritorio\SmileApp\SmileApp\SmileAppp\SmileApp\o
 C:\Users\Mateo Rincon\OneDrive\Escritorio\SmileApp\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.pdb
 C:\Users\Mateo Rincon\OneDrive\Escritorio\SmileApp\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.genruntimeconfig.cache
 C:\Users\Mateo Rincon\OneDrive\Escritorio\SmileApp\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\ref\SmileApp.dll
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\appsettings.Development.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\appsettings.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\SmileApp.staticwebassets.runtime.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\SmileApp.exe
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\SmileApp.deps.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\SmileApp.runtimeconfig.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\SmileApp.dll
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\bin\Debug\net8.0\SmileApp.pdb
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.AssemblyInfoInputs.cache
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.AssemblyInfo.cs
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.csproj.CoreCompileInputs.cache
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.RazorAssemblyInfo.cache
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.RazorAssemblyInfo.cs
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.sourcelink.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets.build.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets.development.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets\msbuild.SmileApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets\msbuild.build.SmileApp.props
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SmileApp.props
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SmileApp.props
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\scopedcss\bundle\SmileApp.styles.css
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\scopedcss\projectbundle\SmileApp.bundle.scp.css
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.dll
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\refint\SmileApp.dll
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.pdb
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\SmileApp.genruntimeconfig.cache
+C:\Proyectos\PrograAvnazadaWeb\SmileApp\SmileAppp\SmileApp\obj\Debug\net8.0\ref\SmileApp.dll

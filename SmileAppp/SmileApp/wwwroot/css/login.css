@@ -1,0 +1,185 @@
+﻿:root {
+    --dental-primary: #2a9dd6;
+    --dental-secondary: #f8f9fa;
+    --dental-light: #e9f7fe;
+    --dental-dark: #1a6a8d;
+    --effect-color: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    background-color: #f5f5f5;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+}
+
+.login-card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: none;
+    position: relative;
+    background: white;
+}
+
+/* Efecto de luz animado */
+.light-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, var(--effect-color), transparent );
+    animation: lightPass 3s infinite;
+    z-index: 1;
+    opacity: 0;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+@keyframes lightPass {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.login-header {
+    background-color: var(--dental-primary);
+    background-image: linear-gradient(to right, var(--dental-primary), var(--dental-dark));
+    color: white;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+    .login-header h2 {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .login-header p {
+        opacity: 0.9;
+        font-size: 0.95rem;
+    }
+
+.login-body {
+    padding: 30px;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.dental-logo {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.form-control:focus {
+    border-color: var(--dental-primary);
+    box-shadow: 0 0 0 0.25rem rgba(42, 157, 214, 0.25);
+}
+
+.btn-dental {
+    background-color: var(--dental-primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-dental:hover {
+        background-color: var(--dental-dark);
+        transform: translateY(-2px);
+    }
+
+    .btn-dental::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.4), transparent );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+    }
+
+    .btn-dental:hover::after {
+        transform: translateX(100%);
+    }
+
+.input-group-text {
+    background-color: var(--dental-secondary);
+    color: #6c757d;
+}
+
+.forgot-password {
+    color: var(--dental-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+    .forgot-password:hover {
+        text-decoration: underline;
+        color: var(--dental-dark);
+    }
+
+/* Responsive */
+@media (max-width: 576px) {
+    .login-header {
+        padding: 20px 15px;
+    }
+
+    .login-body {
+        padding: 25px 20px;
+    }
+
+    .btn-dental {
+        padding: 8px;
+    }
+}
