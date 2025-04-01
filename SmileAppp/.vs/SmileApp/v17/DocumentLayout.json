@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\views\\home\\citasmedicas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\home\\citasmedicas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\views\\home\\seguridad.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\views\\home\\inventario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\home\\inventario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\views\\home\\citasmedicas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\home\\citasmedicas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\prograavnazadaweb\\smileapp\\smileappp\\smileapp\\views\\home\\gestionpacientes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -66,11 +66,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "SmileApp\\Controllers\\AccountController.cs",
@@ -78,51 +78,48 @@
               "RelativeToolTip": "SmileApp\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAmwCMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T18:30:34.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T18:30:34.496Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "login.js",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\js\\login.js",
               "RelativeDocumentMoniker": "SmileApp\\wwwroot\\js\\login.js",
               "ToolTip": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\js\\login.js",
               "RelativeToolTip": "SmileApp\\wwwroot\\js\\login.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwDIAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAA6wDIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-31T18:28:46.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T18:28:46.874Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "login.css",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\css\\login.css",
               "RelativeDocumentMoniker": "SmileApp\\wwwroot\\css\\login.css",
               "ToolTip": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\css\\login.css",
               "RelativeToolTip": "SmileApp\\wwwroot\\css\\login.css",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAwLgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-03-31T18:28:11.202Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Account\\Login.cshtml",
               "ToolTip": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "SmileApp\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T18:27:20.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T18:27:20.412Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Seguridad.cshtml",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\Seguridad.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Home\\Seguridad.cshtml",
@@ -130,12 +127,11 @@
               "RelativeToolTip": "SmileApp\\Views\\Home\\Seguridad.cshtml",
               "ViewState": "AgIAAHIAAAAAAAAAAAAmwHkAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-29T03:47:43.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-29T03:47:43.707Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Reportes.cshtml",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\Reportes.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Home\\Reportes.cshtml",
@@ -147,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Finanzas.cshtml",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\Finanzas.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Home\\Finanzas.cshtml",
@@ -159,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Inventario.cshtml",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\Inventario.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Home\\Inventario.cshtml",
@@ -171,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "CitasMedicas.cshtml",
               "DocumentMoniker": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\CitasMedicas.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Home\\CitasMedicas.cshtml",
@@ -179,7 +175,8 @@
               "RelativeToolTip": "SmileApp\\Views\\Home\\CitasMedicas.cshtml",
               "ViewState": "AgIAAHsAAAAAAAAAAAAAAG8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-29T03:08:42.42Z"
+              "WhenOpened": "2025-03-29T03:08:42.42Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
