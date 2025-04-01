@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\SmileApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\Imgenes\\Board.png",
+      "PackagePath": "staticwebassets\\Imgenes\\Board.png"
+    },
+    {
+      "Id": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\Imgenes\\MasSonrisas1.png",
+      "PackagePath": "staticwebassets\\Imgenes\\MasSonrisas1.png"
+    },
+    {
+      "Id": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\Imgenes\\MasSonrisas2.png",
+      "PackagePath": "staticwebassets\\Imgenes\\MasSonrisas2.png"
+    },
+    {
+      "Id": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\Imgenes\\MasSonrisas4.png",
+      "PackagePath": "staticwebassets\\Imgenes\\MasSonrisas4.png"
+    },
+    {
       "Id": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
