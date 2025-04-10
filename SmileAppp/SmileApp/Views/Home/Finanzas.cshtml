@@ -58,17 +58,122 @@
     </div>
 
     <!-- Generar Proforma -->
+    <!-- Botón para abrir el formulario de creación de proforma -->
     <div class="row mb-4">
         <div class="col-md-12">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Generar Proforma</h5>
-                    <p class="card-text">Crea una proforma para los servicios prestados o para los pacientes que se están atendiendo.</p>
-                    <a href="/Finanzas/GenerarProforma" class="btn btn-primary">Generar Proforma</a>
+                    <h5 class="card-title">Crear Proforma</h5>
+                    <!-- Botón para abrir el formulario de proforma -->
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#crearProformaModal">
+                        <i class="bi bi-file-earmark-plus"></i> Crear Proforma
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal para crear la proforma -->
+    <div class="modal fade" id="crearProformaModal" tabindex="-1" aria-labelledby="crearProformaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearProformaModalLabel">Crear Proforma</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de creación de proforma -->
+                    <form id="formProforma">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descuento" class="form-label">Descuento (%)</label>
+                            <input type="number" class="form-control" id="descuento" min="0" max="100">
+                        </div>
+                        <div class="mb-3">
+                            <label for="articulo" class="form-label">Artículo</label>
+                            <input type="text" class="form-control" id="articulo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Servicio" class="form-label">Servicio</label>
+                            <input type="text" class="form-control" id="Servicio" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="precio" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="guardarProforma">Guardar Proforma</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón para abrir el formulario de crear transacción -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Crear Transacción</h5>
+                    <!-- Botón para abrir el formulario de transacción -->
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#crearTransaccionModal">
+                        <i class="bi bi-file-earmark-plus"></i> Crear Transacción
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para crear la transacción -->
+    <div class="modal fade" id="crearTransaccionModal" tabindex="-1" aria-labelledby="crearTransaccionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearTransaccionModalLabel">Crear Transacción</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de creación de transacción -->
+                    <form id="formTransaccion">
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="fecha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="descripcion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo" class="form-label">Tipo de Transacción</label>
+                            <select class="form-select" id="tipo" required>
+                                <option value="">Selecciona el tipo</option>
+                                <option value="Ingreso">Ingreso</option>
+                                <option value="Egreso">Egreso</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="monto" class="form-label">Monto</label>
+                            <input type="number" class="form-control" id="monto" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="guardarTransaccion">Guardar Transacción</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Listado de Ingresos y Egresos Recientes -->
     <section class="py-5">
