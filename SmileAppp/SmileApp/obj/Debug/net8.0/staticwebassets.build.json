@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1vzACHkyCALLT3wFfEabmT8RDoVrnQJfdTQNEB7ACGk=",
+  "Hash": "JmcwMXfdkzEiYpr5EXCYFnhkiY0wQfxbjQBX3UD94XY=",
   "Source": "SmileApp",
   "BasePath": "_content/SmileApp",
   "Mode": "Default",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login.js"
+    },
+    {
+      "Identity": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\js\\register.js",
+      "SourceId": "SmileApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\",
+      "BasePath": "_content/SmileApp",
+      "RelativePath": "js/register.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\register.js"
     },
     {
       "Identity": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\wwwroot\\js\\site.js",

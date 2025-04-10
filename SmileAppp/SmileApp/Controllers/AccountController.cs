@@ -5,12 +5,14 @@ namespace SmileApp.Controllers
 {
     public class AccountController : Controller
     {
+        // GET: /Account/Login
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
+        // POST: /Account/Login (mantenido igual como referencia)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(string username, string password, bool rememberMe)
@@ -30,6 +32,38 @@ namespace SmileApp.Controllers
             }
 
             ModelState.AddModelError("", "Credenciales inválidas");
+            return View();
+        }
+
+        // GET: /Account/Register (solo visual)
+        [HttpGet]
+        public IActionResult Register()
+        {
+            // Vista solo para visualización, sin lógica
+            return View();
+        }
+
+        // POST: /Account/Register (simulado)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(
+            string firstName,
+            string lastName,
+            string email,
+            string username,
+            string password,
+            string confirmPassword,
+            string role,
+            bool acceptTerms)
+        {
+            // Solo redirecciona al login con mensaje simulado
+            TempData["RegistrationMessage"] = "Registro simulado correctamente";
+            return RedirectToAction("Login");
+        }
+
+        // GET: /Account/AccessDenied (opcional)
+        public IActionResult AccessDenied()
+        {
             return View();
         }
     }
