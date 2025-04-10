@@ -15,6 +15,11 @@ namespace SmileApp.Controllers
             return View();
         }
 
+        public IActionResult GestionPacienteCreate()
+        {
+            return View();
+        }
+
         // Acción para la vista de Citas Médicas
         public IActionResult CitasMedicas()
         {

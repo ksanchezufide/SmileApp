@@ -61,6 +61,145 @@
         </div>
     </div>
 
+    <!-- Botón para abrir el Modal de Nuevo Producto -->
+    <div class="row mb-4">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProductoModal">
+                Agregar Nuevo Producto
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="agregarProductoModal" tabindex="-1" aria-labelledby="agregarProductoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="agregarProductoModalLabel">Agregar Nuevo Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="nombreProducto" class="form-label">Nombre del Producto</label>
+                                <input type="text" class="form-control" id="nombreProducto" placeholder="Ej. Pasta dental">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="categoriaProducto" class="form-label">Categoría</label>
+                                <select class="form-select" id="categoriaProducto">
+                                    <option selected disabled>Seleccione una categoría</option>
+                                    <option value="Higiene">Higiene</option>
+                                    <option value="Instrumental">Instrumental</option>
+                                    <option value="Medicamentos">Medicamentos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="precioProducto" class="form-label">Precio (₡)</label>
+                                <input type="number" class="form-control" id="precioProducto" placeholder="Ej. 2500">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cantidadProducto" class="form-label">Cantidad en Inventario</label>
+                                <input type="number" class="form-control" id="cantidadProducto" placeholder="Ej. 100">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="codigoProducto" class="form-label">Código</label>
+                                <input type="text" class="form-control" id="codigoProducto" placeholder="Ej. P12345">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcionProducto" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcionProducto" rows="3" placeholder="Breve descripción del producto..."></textarea>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="estadoProducto" checked>
+                            <label class="form-check-label" for="estadoProducto">Producto Activo</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Guardar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de búsqueda con filtros dentro de una tarjeta -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Buscar Producto</h5>
+
+                    <!-- Barra de búsqueda -->
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Buscar producto..." id="buscarProducto">
+                        <button class="btn btn-primary" type="button" id="buscarBtn">
+                            <i class="bi bi-search"></i> Buscar
+                        </button>
+                    </div>
+
+                    <!-- Filtros de búsqueda -->
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="categoriaFiltro" class="form-label">Categoría</label>
+                            <select class="form-select" id="categoriaFiltro">
+                                <option selected disabled>Seleccione una categoría</option>
+                                <option value="Higiene">Higiene</option>
+                                <option value="Instrumental">Instrumental</option>
+                                <option value="Medicamentos">Medicamentos</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="precioFiltro" class="form-label">Rango de Precio (₡)</label>
+                            <input type="range" class="form-range" id="precioFiltro" min="0" max="50000" step="1000" value="25000">
+                            <div class="d-flex justify-content-between">
+                                <span>₡0</span>
+                                <span>₡50,000</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="estadoFiltro" class="form-label">Estado</label>
+                            <select class="form-select" id="estadoFiltro">
+                                <option selected>Activo</option>
+                                <option>Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Resultado de búsqueda (vista previa) -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="list-group" id="productosResult">
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Producto 1</h5>
+                                        <span class="badge bg-success">Disponible</span>
+                                    </div>
+                                    <p class="mb-1">Descripción corta del producto...</p>
+                                    <small>₡2,500</small>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Producto 2</h5>
+                                        <span class="badge bg-warning">Poco stock</span>
+                                    </div>
+                                    <p class="mb-1">Descripción corta del producto...</p>
+                                    <small>₡5,000</small>
+                                </div>
+                                <!-- Puedes agregar más productos aquí -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Lista de Productos -->
     <section class="py-5">
         <div class="container">
@@ -123,9 +262,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-end">
-                <a href="/Inventario/Agregar" class="btn btn-success">Agregar Producto</a>
-            </div>
+            
         </div>
     </section>
 </div>
