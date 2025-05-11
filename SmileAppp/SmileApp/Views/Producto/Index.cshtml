@@ -1,0 +1,108 @@
+﻿@model IEnumerable<SmileApp.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+    <!-- Encabezado del Módulo -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white text-center py-4">
+                    <h1 class="display-4 fw-bold">Módulo de Inventario</h1>
+                    <p class="lead">Aquí podrás gestionar el inventario de los productos utilizados en el consultorio dental.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    // Contamos los productos con diferentes estados de stock
+    var productosConStockSuficiente = Model.Count(p => p.Cantidad >= p.StockMinimo);
+    var productosBajoStock = Model.Count(p => p.Cantidad < p.StockMinimo && p.Cantidad > 0);
+    var productosAgotados = Model.Count(p => p.Cantidad == 0);
+}
+
+<!-- Resumen de inventario -->
+<!-- Resumen de Inventario con tarjeta blanca contenedora -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Resumen del Inventario</h5>
+                <div class="d-flex justify-content-around flex-wrap">
+                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Stock suficiente</h5>
+                            <p class="card-text">@productosConStockSuficiente productos en stock suficiente</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Bajo stock</h5>
+                            <p class="card-text">@productosBajoStock productos con bajo stock</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Agotados</h5>
+                            <p class="card-text">@productosAgotados productos agotados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Formulario de Filtros -->
+<form method="get" asp-action="Index" class="mb-4">
+    <div class="row g-2 align-items-end">
+        <div class="col-md-4">
+            <label class="form-label">Buscar por nombre o descripción</label>
+            <input type="text" name="buscar" value="@Context.Request.Query["buscar"]" class="form-control" placeholder="Ej. mascarilla, pasta dental" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Estado de Stock</label>
+            <select name="estado" class="form-select">
+                <option value="">-- Todos --</option>
+                <option value="agotado" selected="@(Context.Request.Query["estado"] == "agotado")">Agotado</option>
+                <option value="bajo" selected="@(Context.Request.Query["estado"] == "bajo")">Bajo stock</option>
+                <option value="suficiente" selected="@(Context.Request.Query["estado"] == "suficiente")">Stock suficiente</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Estado</label>
+            <select name="activo" class="form-select">
+                <option value="">-- Todos --</option>
+                <option value="true" selected="@(Context.Request.Query["activo"] == "true")">Activos</option>
+                <option value="false" selected="@(Context.Request.Query["activo"] == "false")">Inactivos</option>
+            </select>
+        </div>
+        <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </div>
+</form>
+
+<!-- Lista de Productos en Tarjetas -->
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nombre</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">₡@item.Precio.ToString("N2")</h6>
+                    <p class="card-text">@item.Descripcion</p>
+                    <p>
+                        <strong>Cantidad:</strong> @item.Cantidad <br />
+                        <strong>Stock mínimo:</strong> @item.StockMinimo <br />
+                        <strong>Activo:</strong> @(item.Activo ? "Sí" : "No")
+                    </p>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

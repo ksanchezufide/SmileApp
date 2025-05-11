@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmileApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2830f87bf6fe484ae0301557d5d373937043d28d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8fd857f756958781ba1a6a65d045607fb048d71")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmileApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmileApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
