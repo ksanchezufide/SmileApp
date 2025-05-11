@@ -1,7 +1,19 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SmileApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configurar la conexión a la base de datos
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Si necesitas usar Identity, descomenta la siguiente línea:
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -21,6 +33,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Map the controllers and views
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

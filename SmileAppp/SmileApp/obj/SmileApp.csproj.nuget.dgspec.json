@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {}
+    "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {
+    "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
+        "projectUniqueName": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
         "projectName": "SmileApp",
-        "projectPath": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
-        "packagesPath": "C:\\Users\\Roger\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos\\PrograAvnazadaWeb\\SmileApp\\SmileAppp\\SmileApp\\obj\\",
+        "projectPath": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
+        "packagesPath": "C:\\Users\\Rogers\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Roger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rogers\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,11 +44,38 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
