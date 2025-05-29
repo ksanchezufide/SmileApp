@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {}
+    "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {
+    "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
+        "projectUniqueName": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
         "projectName": "SmileApp",
-        "projectPath": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
-        "packagesPath": "C:\\Users\\Rogers\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\obj\\",
+        "projectPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\SmileApp.csproj",
+        "packagesPath": "C:\\Users\\Mateo Rincon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Rogers\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mateo Rincon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

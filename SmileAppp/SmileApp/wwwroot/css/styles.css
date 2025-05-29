@@ -147,3 +147,35 @@ body {
         .footer a:hover {
             text-decoration: underline;
         }
+
+/* === Estilos Navbar personalizados === */
+
+/* Centrado de elementos dentro del navbar */
+.navbar-collapse {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Alineación vertical de ítems */
+.navbar-nav {
+    align-items: center;
+}
+
+/* Estilo para el logo centrado */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 1.5rem;
+}
+/* === Mejora de espaciado para íconos de navbar === */
+.navbar-nav .nav-item .nav-link i {
+    font-size: 1.2rem;
+}
+
+/* Prevención de desbordamiento de menú */
+.dropdown-menu-end {
+    right: 0 !important;
+    left: auto !important;
+}
+

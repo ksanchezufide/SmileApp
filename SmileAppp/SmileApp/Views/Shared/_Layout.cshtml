@@ -4,33 +4,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SmileApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SmileApp.styles.css" asp-append-version="true" />
-    <!-- Agregado Font Awesome para el icono -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-</head>
-<body class="d-flex flex-column min-vh-100">
 
-    <!-- Navbar -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right, #4e54c8, #0088ff);">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Logo y título -->
+                <a class="navbar-brand fw-bold text-white" href="@Url.Action("Index", "Home")">SmileApp</a>
+
+
+                <!-- Botón hamburguesa para colapsar menú -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <!-- Módulos a la izquierda -->
+
+                <!-- Contenido del navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Módulos (izquierda) -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="modulesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Módulos
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="modulesDropdown">
                                 <li><a class="dropdown-item" href="@Url.Action("GestionPacientes", "Home")">Gestión de Pacientes</a></li>
                                 <li><a class="dropdown-item" href="@Url.Action("CitasMedicas", "Home")">Citas Médicas</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Inventario", "Home")">Inventario de la Clínica</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Index", "Producto")">Inventario de la Clínica</a></li>
                                 <li><a class="dropdown-item" href="@Url.Action("Finanzas", "Home")">Finanzas</a></li>
                                 <li><a class="dropdown-item" href="@Url.Action("Reportes", "Home")">Análisis y Reportes</a></li>
                                 <li><a class="dropdown-item" href="@Url.Action("Seguridad", "Home")">Seguridad y Acceso</a></li>
@@ -38,67 +46,52 @@
                         </li>
                     </ul>
 
-                    <!-- Logo centrado -->
-                    <a class="navbar-brand mx-auto" href="@Url.Action("Index", "Home")">SmileApp</a>
-
-                    <!-- Notificaciones a la derecha -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Icono de notificaciones -->
+                    <!-- Íconos de notificaciones y usuario (derecha) -->
+                    <ul class="navbar-nav d-flex flex-row align-items-center gap-3">
+                        <!-- Notificaciones -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-white" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-bell"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="notificationsDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
                                 <li><h6 class="dropdown-header">Notificaciones</h6></li>
-                                <li><a class="dropdown-item" href="#"><small class="text-muted">Nueva cita programada para mañana</small></a></li>
-                                <li><a class="dropdown-item" href="#"><small class="text-muted">Alerta: Stock bajo de amalgama</small></a></li>
+                                <li><a class="dropdown-item" href="#">Nueva cita programada</a></li>
+                                <li><a class="dropdown-item" href="#">Alerta: Stock bajo</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-center" href="#">Ver todas</a></li>
                             </ul>
                         </li>
 
-                        <!-- Icono de usuario -->
+                        <!-- Usuario -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-white" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="userDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><h6 class="dropdown-header">Usuario</h6></li>
                                 <li><a class="dropdown-item" href="#">Mi perfil</a></li>
                                 <li><a class="dropdown-item" href="#">Configuración</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                                <li><a class="dropdown-item" href="/Account/Login">Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Contenido principal -->
-    <div class="container flex-grow-1 d-flex flex-column">
-        <main role="main" class="pb-3 flex-grow-1">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="container-fluid mt-3">
+        @RenderBody()
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-info text-white text-center py-3 mt-auto">
-        <div class="container">
-            <p class="mb-0">&copy; @DateTime.Now.Year SmileApp | Todos los derechos reservados.</p>
-            <p class="mb-0">
-                <a href="@Url.Action("Contacto", "Home")" class="text-white text-decoration-none">Contáctanos</a> |
-                <a href="@Url.Action("Privacy", "Home")" class="text-white text-decoration-none">Política de Privacidad</a>
-            </p>
-        </div>
+    <footer class="text-center text-muted py-3 mt-auto">
+        <small>&copy; 2025 - SmileApp</small>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
