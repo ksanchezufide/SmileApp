@@ -50,25 +50,12 @@
         </div>
     </div>
 
-    <!-- Gráfico de Barras del Inventario -->
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Gráfico de Existencias</h5>
-                    <canvas id="inventoryChart" height="300"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Botón para abrir el Modal de Nuevo Producto -->
     <div class="row mb-4">
-        <div class="col-md-12 text-center">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProductoModal">
-                Agregar Nuevo Producto
-            </button>
-        </div>
+        <div class="d-flex justify-content-end">
+            <a href="/Producto/Create" class="btn btn-success">Agregar Producto</a>
+        </div>w
     </div>
 
     <!-- Modal -->
@@ -201,47 +188,5 @@
         </div>
     </div>
 
-    <!-- Lista de Productos -->
-    <section class="py-5">
-        <div class="container">
-
-
-            @@ -123,38 +262,36 @@
-        </div>
-</div>
-            </div>
-<div class="d-flex justify-content-end">
-    <a href="/Inventario/Agregar" class="btn btn-success">Agregar Producto</a>
 </div>
 
-        </div>
-    </section>
-</div>
-
-<!-- Script para el Gráfico de Existencias -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Crear el gráfico de barras
-    var ctx = document.getElementById('inventoryChart').getContext('2d');
-    var inventoryChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Espejo Dental', 'Pinzas Quirúrgicas', 'Sonda Periodontal', 'Cánula de Aspiración'],
-            datasets: [{
-                label: 'Cantidad en Stock',
-                data: [50, 30, 20, 5], // Las cantidades de cada producto
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>

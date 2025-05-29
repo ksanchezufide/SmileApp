@@ -1,38 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Proyectos\\SmileApp\\SmileAppp\\",
+  "WorkspaceRootPath": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\views\\producto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\users\\mateo rincon\\onedrive\\escritorio\\smileapp\\smileapp\\smileappp\\smileapp\\views\\producto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\producto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\views\\home\\inventario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\home\\inventario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\views\\producto\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\users\\mateo rincon\\onedrive\\escritorio\\smileapp\\smileapp\\smileappp\\smileapp\\views\\producto\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\producto\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\views\\producto\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\users\\mateo rincon\\onedrive\\escritorio\\smileapp\\smileapp\\smileappp\\smileapp\\views\\producto\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\producto\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\users\\mateo rincon\\onedrive\\escritorio\\smileapp\\smileapp\\smileappp\\smileapp\\views\\producto\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\producto\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\users\\mateo rincon\\onedrive\\escritorio\\smileapp\\smileapp\\smileappp\\smileapp\\views\\producto\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\producto\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\users\\mateo rincon\\onedrive\\escritorio\\smileapp\\smileapp\\smileappp\\smileapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|c:\\proyectos\\smileapp\\smileappp\\smileapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{779D486F-341F-4870-94B5-58C67A579710}|SmileApp\\SmileApp.csproj|solutionrelative:smileapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,111 +34,161 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 13,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d562c6a0-d2fe-4c19-a8b3-e5cbc09bf375}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5c82a791-7c9f-441e-952b-8848655dd85e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5e929736-0e81-4d52-a78e-546a1649faca}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Edit.cshtml",
-              "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Edit.cshtml",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Edit.cshtml",
-              "RelativeToolTip": "SmileApp\\Views\\Producto\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Create.cshtml",
+              "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Create.cshtml",
+              "RelativeToolTip": "SmileApp\\Views\\Producto\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T00:31:11.58Z",
+              "WhenOpened": "2025-05-29T01:49:23.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Delete.cshtml",
+              "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Delete.cshtml",
+              "RelativeToolTip": "SmileApp\\Views\\Producto\\Delete.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T01:47:49.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Create.cshtml",
-              "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Create.cshtml",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Create.cshtml",
-              "RelativeToolTip": "SmileApp\\Views\\Producto\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAASAAAAAAAAAA==",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Details.cshtml",
+              "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Details.cshtml",
+              "RelativeToolTip": "SmileApp\\Views\\Producto\\Details.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T00:30:43.193Z",
+              "WhenOpened": "2025-05-29T01:46:31.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Edit.cshtml",
+              "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Edit.cshtml",
+              "RelativeToolTip": "SmileApp\\Views\\Producto\\Edit.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T01:43:56.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Index.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Producto\\Index.cshtml",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Producto\\Index.cshtml",
               "RelativeToolTip": "SmileApp\\Views\\Producto\\Index.cshtml",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwDMAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAYwI4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T00:15:26.392Z",
+              "WhenOpened": "2025-05-29T01:37:37.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "SmileApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Mateo Rincon\\OneDrive\\Escritorio\\SmileApp\\SmileApp\\SmileAppp\\SmileApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "SmileApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAABiAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACsAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-11T00:04:03.648Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductoController.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Controllers\\ProductoController.cs",
-              "RelativeDocumentMoniker": "SmileApp\\Controllers\\ProductoController.cs",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Controllers\\ProductoController.cs",
-              "RelativeToolTip": "SmileApp\\Controllers\\ProductoController.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAnwLQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T00:01:14.547Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Inventario.cshtml",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\Inventario.cshtml",
-              "RelativeDocumentMoniker": "SmileApp\\Views\\Home\\Inventario.cshtml",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Views\\Home\\Inventario.cshtml",
-              "RelativeToolTip": "SmileApp\\Views\\Home\\Inventario.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACkAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-10T23:59:45.452Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d98f7c4d-b652-422c-bcdf-3d0e2b2da2c1}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Models\\Producto.cs",
-              "RelativeDocumentMoniker": "SmileApp\\Models\\Producto.cs",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Models\\Producto.cs",
-              "RelativeToolTip": "SmileApp\\Models\\Producto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T23:57:13.966Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:18:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "SmileApp\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Proyectos\\SmileApp\\SmileAppp\\SmileApp\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "SmileApp\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T23:31:51.241Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:21:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 150,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
