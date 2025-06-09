@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace SmileApp.Controllers
 {
@@ -6,10 +7,11 @@ namespace SmileApp.Controllers
     {
         public IActionResult Index()
         {
+            var nombre = HttpContext.Session.GetString("NombreUsuario");
+            ViewBag.NombreUsuario = nombre;
             return View();
         }
 
-        // Acción para la vista de Gestión de Pacientes
         public IActionResult GestionPacientes()
         {
             return View();
@@ -20,37 +22,31 @@ namespace SmileApp.Controllers
             return View();
         }
 
-        // Acción para la vista de Citas Médicas
         public IActionResult CitasMedicas()
         {
             return View();
         }
 
-        // Acción para la vista de Inventario
         public IActionResult Inventario()
         {
             return View();
         }
 
-        // Acción para la vista de Finanzas
         public IActionResult Finanzas()
         {
             return View();
         }
 
-        // Acción para la vista de Análisis y Reportes
         public IActionResult Reportes()
         {
             return View();
         }
 
-        // Acción para la vista de Seguridad y Acceso
         public IActionResult Seguridad()
         {
             return View();
         }
 
-        // Acción para la vista de Privacidad
         public IActionResult Privacy()
         {
             return View();
