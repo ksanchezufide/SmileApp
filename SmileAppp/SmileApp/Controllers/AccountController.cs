@@ -1,49 +1,74 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SmileApp.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SmileApp.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: /Account/Login
+        private readonly ApplicationDbContext _context;
+
+        public AccountController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        // POST: /Account/Login (mantenido igual como referencia)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(string username, string password, bool rememberMe)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            // Aquí iría la lógica de autenticación real
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            ModelState.Remove(nameof(model.MensajeError));
+
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Usuario y contraseña son requeridos");
-                return View();
+                var errores = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                Console.WriteLine("Errores del modelo:");
+                foreach (var error in errores)
+                {
+                    Console.WriteLine(error);
+                }
+
+                return View(model);
             }
 
-            // Ejemplo básico de validación (en producción usaría Identity)
-            if (username == "admin" && password == "admin123")
+            var usuario = await _context.Usuarios
+                .Include(u => u.Rol)
+                .FirstOrDefaultAsync(u => u.Correo == model.Correo && u.Estado == true);
+
+            if (usuario == null)
             {
-                // Autenticación exitosa
-                return RedirectToAction("Index", "Home");
+                model.MensajeError = "No se encontró un usuario con ese correo o está inactivo.";
+                return View(model);
             }
 
-            ModelState.AddModelError("", "Credenciales inválidas");
-            return View();
+            if (usuario.ContraseñaHash != model.Contraseña)
+            {
+                model.MensajeError = "Contraseña incorrecta.";
+                return View(model);
+            }
+
+            HttpContext.Session.SetInt32("UsuarioId", usuario.Id);
+            HttpContext.Session.SetString("NombreUsuario", usuario.Nombre);
+            HttpContext.Session.SetString("Rol", usuario.Rol?.Nombre ?? "");
+
+            return RedirectToAction("Index", "Home");
         }
 
-        // GET: /Account/Register (solo visual)
         [HttpGet]
         public IActionResult Register()
         {
-            // Vista solo para visualización, sin lógica
             return View();
         }
 
-        // POST: /Account/Register (simulado)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Register(
@@ -56,12 +81,16 @@ namespace SmileApp.Controllers
             string role,
             bool acceptTerms)
         {
-            // Solo redirecciona al login con mensaje simulado
             TempData["RegistrationMessage"] = "Registro simulado correctamente";
             return RedirectToAction("Login");
         }
 
-        // GET: /Account/AccessDenied (opcional)
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
+        }
+
         public IActionResult AccessDenied()
         {
             return View();
