@@ -1,0 +1,17 @@
+# Carpetas de Visual Studio
+.vs
+
+# Archivos de usuario y depuración
+.user
+.suo
+
+# Directorios de compilación
+bin
+obj
+
+# Config local
+.dbmdl
+.log
+.tmp
+.bak
+.local.json
