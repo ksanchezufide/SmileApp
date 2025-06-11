@@ -1,4 +1,5 @@
-﻿
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 using System.ComponentModel.DataAnnotations;
 
 
