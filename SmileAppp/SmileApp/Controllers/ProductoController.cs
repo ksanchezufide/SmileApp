@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -86,6 +86,15 @@ namespace SmileApp.Controllers
             {
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
+                if (producto.Cantidad <= producto.StockMinimo && producto.Cantidad > 0)
+                {
+                    TempData["BajoStockMensaje"] = $"¡Atención! El producto '{producto.Nombre}' tiene solo {producto.Cantidad} unidades en inventario (mínimo requerido: {producto.StockMinimo}).";
+                }
+                else if (producto.Cantidad == 0)
+                {
+                    TempData["AgotadoMensaje"] = $"⚠ El producto '{producto.Nombre}' está completamente agotado.";
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(producto);
