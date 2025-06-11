@@ -8,7 +8,7 @@ CREATE TABLE Usuarios (
     Id INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
     Correo NVARCHAR(100) UNIQUE,
-    ContraseñaHash NVARCHAR(255),
+    ContraseÃ±aHash NVARCHAR(255),
     RolId INT,
     Estado BIT DEFAULT 1,
     FechaRegistro DATETIME DEFAULT GETDATE(),
@@ -39,7 +39,7 @@ CREATE TABLE Auditorias (
     FOREIGN KEY (UsuarioId) REFERENCES Usuarios(Id)
 );
 
--- Gestión de Pacientes
+-- GestiÃ³n de Pacientes
 CREATE TABLE Pacientes (
     Id INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
@@ -64,7 +64,7 @@ CREATE TABLE HistorialClinico (
     FOREIGN KEY (MedicoId) REFERENCES Usuarios(Id)
 );
 
--- Citas Médicas
+-- Citas MÃ©dicas
 CREATE TABLE Citas (
     Id INT PRIMARY KEY IDENTITY,
     PacienteId INT,
@@ -99,6 +99,19 @@ CREATE TABLE Productos (
     PrecioCompra DECIMAL(10,2),
     PrecioVenta DECIMAL(10,2)
 );
+---
+
+AGREGAR ESTO A PRODUCTOS
+    
+ALTER TABLE Productos
+ADD Cantidad INT NULL;
+
+ALTER TABLE Productos
+ADD Precio DECIMAL(10,2) NOT NULL DEFAULT 0;
+
+ALTER TABLE Productos
+ADD Activo BIT NOT NULL DEFAULT 1;
+---
 
 CREATE TABLE EntradasInventario (
     Id INT PRIMARY KEY IDENTITY,
