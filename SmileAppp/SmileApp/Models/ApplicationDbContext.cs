@@ -49,9 +49,7 @@ namespace SmileApp.Models
                 .HasForeignKey(a => a.PacienteId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<ArchivoPaciente>()
-                .Property(a => a.FechaSubida)
-                .HasDefaultValueSql("GETDATE()");
+
         }
     }
 }
