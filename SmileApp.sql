@@ -1,4 +1,8 @@
 -- Roles y Seguridad
+CREATE DATABASE SmileAppDb;
+
+USE Database SmileAppDb;
+
 CREATE TABLE Roles (
     Id INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(50) NOT NULL
@@ -153,3 +157,17 @@ CREATE TABLE Facturas (
     Detalle NVARCHAR(255),
     FOREIGN KEY (PacienteId) REFERENCES Pacientes(Id)
 );
+
+
+-- Insertar roles (Administrador y Dentista)
+
+INSERT INTO Roles (Nombre) VALUES ('Administrador');
+INSERT INTO Roles (Nombre) VALUES ('Dentista');
+
+-- Insertar usuarios (referenciando RolId correcto)
+
+INSERT INTO Usuarios (Nombre, Correo, ContraseñaHash, RolId, Estado)
+VALUES ('Juan Pérez', 'admin@clinica.com', 'admin123', 1, 1);
+
+INSERT INTO Usuarios (Nombre, Correo, ContraseñaHash, RolId, Estado)
+VALUES ('Carlos Solis', 'dentista@clinica.com', 'dentista123', 2, 1);

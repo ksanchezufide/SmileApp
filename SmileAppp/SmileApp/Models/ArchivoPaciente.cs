@@ -23,8 +23,6 @@ namespace SmileApp.Models
         [MaxLength(500)]
         public string RutaArchivo { get; set; }
 
-        public DateTime FechaSubida { get; set; }
-
         public Paciente Paciente { get; set; }
     }
 }

@@ -57,44 +57,7 @@ namespace SmileApp.Controllers
                 _context.Add(paciente);
                 await _context.SaveChangesAsync();
 
-                // Guardar archivos si se subieron
-                if (Archivos != null && Archivos.Count > 0)
-                {
-                    var rutaBase = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "archivos");
-
-                    if (!Directory.Exists(rutaBase))
-                        Directory.CreateDirectory(rutaBase);
-
-                    foreach (var archivo in Archivos)
-                    {
-                        if (archivo.Length > 0)
-                        {
-                            var nombreUnico = Guid.NewGuid().ToString() + Path.GetExtension(archivo.FileName);
-                            var rutaCompleta = Path.Combine(rutaBase, nombreUnico);
-
-                            using (var stream = new FileStream(rutaCompleta, FileMode.Create))
-                            {
-                                await archivo.CopyToAsync(stream);
-                            }
-
-                            var tipo = archivo.ContentType.StartsWith("image") ? "imagen" : "documento";
-
-                            var archivoPaciente = new ArchivoPaciente
-                            {
-                                PacienteId = paciente.Id,
-                                NombreArchivo = archivo.FileName,
-                                TipoArchivo = tipo,
-                                RutaArchivo = "/archivos/" + nombreUnico,
-                                FechaSubida = DateTime.Now
-                            };
-
-                            _context.ArchivosPacientes.Add(archivoPaciente);
-                        }
-                    }
-
-                    await _context.SaveChangesAsync();
-                }
-
+                await GuardarArchivos(paciente.Id, Archivos);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -114,10 +77,10 @@ namespace SmileApp.Controllers
             return View(paciente);
         }
 
-        // POST: Paciente/Edit/5
+        // POST: Paciente/Edit/5 (ahora permite subir archivos)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Paciente paciente)
+        public async Task<IActionResult> Edit(int id, Paciente paciente, List<IFormFile> Archivos)
         {
             if (id != paciente.Id)
                 return NotFound();
@@ -128,6 +91,8 @@ namespace SmileApp.Controllers
                 {
                     _context.Update(paciente);
                     await _context.SaveChangesAsync();
+
+                    await GuardarArchivos(paciente.Id, Archivos);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -187,6 +152,47 @@ namespace SmileApp.Controllers
         private bool PacienteExists(int id)
         {
             return _context.Pacientes.Any(e => e.Id == id);
+        }
+
+        // 🔁 Reutilizable: Método privado para guardar archivos
+        private async Task GuardarArchivos(int pacienteId, List<IFormFile> archivos)
+        {
+            if (archivos == null || archivos.Count == 0)
+                return;
+
+            var rutaBase = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "archivos");
+
+            if (!Directory.Exists(rutaBase))
+                Directory.CreateDirectory(rutaBase);
+
+            foreach (var archivo in archivos)
+            {
+                if (archivo.Length > 0)
+                {
+                    var nombreUnico = Guid.NewGuid().ToString() + Path.GetExtension(archivo.FileName);
+                    var rutaCompleta = Path.Combine(rutaBase, nombreUnico);
+
+                    using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+                    {
+                        await archivo.CopyToAsync(stream);
+                    }
+
+                    var tipo = archivo.ContentType.StartsWith("image") ? "imagen" : "documento";
+
+                    var nuevoArchivo = new ArchivoPaciente
+                    {
+                        PacienteId = pacienteId,
+                        NombreArchivo = archivo.FileName,
+                        TipoArchivo = tipo,
+                        RutaArchivo = "/archivos/" + nombreUnico,
+                        
+                    };
+
+                    _context.ArchivosPacientes.Add(nuevoArchivo);
+                }
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }
