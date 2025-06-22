@@ -14,6 +14,9 @@ namespace SmileApp.Models
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
 
+        public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<ArchivoPaciente> ArchivosPacientes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -33,6 +36,22 @@ namespace SmileApp.Models
 
             // Configuración de Rol
             modelBuilder.Entity<Rol>().Property(r => r.Nombre).IsRequired().HasMaxLength(50);
+
+            // Configuración de Paciente
+            modelBuilder.Entity<Paciente>()
+                .Property(p => p.FechaRegistro)
+                .HasDefaultValueSql("GETDATE()");
+
+            // Configuración de ArchivoPaciente
+            modelBuilder.Entity<ArchivoPaciente>()
+                .HasOne(a => a.Paciente)
+                .WithMany(p => p.Archivos)
+                .HasForeignKey(a => a.PacienteId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ArchivoPaciente>()
+                .Property(a => a.FechaSubida)
+                .HasDefaultValueSql("GETDATE()");
         }
     }
 }
