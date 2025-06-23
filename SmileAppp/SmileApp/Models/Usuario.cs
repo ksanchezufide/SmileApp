@@ -8,7 +8,7 @@
             public string ContraseñaHash { get; set; }
             public int RolId { get; set; }
             public bool Estado { get; set; }
-            public DateTime FechaRegistro { get; set; }
+            public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
             public Rol Rol { get; set; }
     }
