@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer("Server=Roger\\SQLEXPRESS;Database=SmileAppDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"));
+    options.UseSqlServer("Server=DESKTOP-BA8GRPG\\SQLEXPRESS;Database=SMILEAPP;Trusted_Connection=True;Encrypt=False;"));
 
 builder.Services.AddSession(options =>
 {
