@@ -4,75 +4,79 @@
     ViewData["Title"] = "Editar Paciente";
 }
 
-<h1>Editar Paciente</h1>
-<hr />
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
+                    <h2 class="fw-bold mb-0">Editar Paciente</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        <input type="hidden" asp-for="Id" />
 
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <input type="hidden" asp-for="Id" />
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label fw-semibold">Nombre</label>
+                            <input asp-for="Nombre" class="form-control rounded-pill" />
+                            <span asp-validation-for="Nombre" class="text-danger small"></span>
+                        </div>
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="Apellido" class="form-label fw-semibold">Apellido</label>
+                            <input asp-for="Apellido" class="form-control rounded-pill" />
+                            <span asp-validation-for="Apellido" class="text-danger small"></span>
+                        </div>
 
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                        <div class="mb-3">
+                            <label asp-for="FechaNacimiento" class="form-label fw-semibold">Fecha de Nacimiento</label>
+                            <input asp-for="FechaNacimiento" type="date" class="form-control rounded-pill" />
+                            <span asp-validation-for="FechaNacimiento" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Sexo" class="form-label fw-semibold">Sexo</label>
+                            <select asp-for="Sexo" class="form-control rounded-pill">
+                                <option value="">-- Seleccione --</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <span asp-validation-for="Sexo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Telefono" class="form-label fw-semibold">Teléfono</label>
+                            <input asp-for="Telefono" class="form-control rounded-pill" />
+                            <span asp-validation-for="Telefono" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Direccion" class="form-label fw-semibold">Dirección</label>
+                            <input asp-for="Direccion" class="form-control rounded-pill" />
+                            <span asp-validation-for="Direccion" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Correo" class="form-label fw-semibold">Correo</label>
+                            <input asp-for="Correo" class="form-control rounded-pill" />
+                            <span asp-validation-for="Correo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Agregar nuevos archivos</label>
+                            <input type="file" name="Archivos" multiple class="form-control rounded-pill" />
+                            <small class="form-text text-muted">Puede subir más archivos o imágenes.</small>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Volver</a>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="FechaNacimiento" class="control-label"></label>
-                <input asp-for="FechaNacimiento" class="form-control" type="date" />
-                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Sexo" class="control-label"></label>
-                <select asp-for="Sexo" class="form-control">
-                    <option value="">-- Seleccione --</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Otro">Otro</option>
-                </select>
-                <span asp-validation-for="Sexo" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Direccion" class="control-label"></label>
-                <input asp-for="Direccion" class="form-control" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Correo" class="control-label"></label>
-                <input asp-for="Correo" class="form-control" />
-                <span asp-validation-for="Correo" class="text-danger"></span>
-            </div>
-
-            <!-- Subida de nuevos archivos -->
-            <div class="form-group">
-                <label class="control-label">Agregar nuevos archivos</label>
-                <input type="file" name="Archivos" multiple class="form-control" />
-                <small class="form-text text-muted">Puede subir más archivos o imágenes.</small>
-            </div>
-
-            <div class="form-group mt-3">
-                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

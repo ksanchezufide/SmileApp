@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SmileApp.Models;
 
@@ -18,10 +19,25 @@ namespace SmileApp.Controllers
             _context = context;
         }
 
-        // GET: Paciente
-        public async Task<IActionResult> Index()
+        // GET: Paciente (modificado para permitir filtros)
+        public async Task<IActionResult> Index(string buscar, string sexo)
         {
-            return View(await _context.Pacientes.ToListAsync());
+            var pacientes = await _context.Pacientes.ToListAsync();
+
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                buscar = buscar.ToLower();
+                pacientes = pacientes.Where(p =>
+                    (p.Nombre + " " + p.Apellido).ToLower().Contains(buscar)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(sexo))
+            {
+                sexo = sexo.ToLower();
+                pacientes = pacientes.Where(p => p.Sexo.ToLower() == sexo).ToList();
+            }
+
+            return View(pacientes);
         }
 
         // GET: Paciente/Details/5
@@ -77,7 +93,7 @@ namespace SmileApp.Controllers
             return View(paciente);
         }
 
-        // POST: Paciente/Edit/5 (ahora permite subir archivos)
+        // POST: Paciente/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Paciente paciente, List<IFormFile> Archivos)
@@ -185,7 +201,6 @@ namespace SmileApp.Controllers
                         NombreArchivo = archivo.FileName,
                         TipoArchivo = tipo,
                         RutaArchivo = "/archivos/" + nombreUnico,
-                        
                     };
 
                     _context.ArchivosPacientes.Add(nuevoArchivo);
