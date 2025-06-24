@@ -34,7 +34,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="modulesDropdown">
                                     @if (rolUsuario == "Administrador" || rolUsuario == "Dentista")
                                     {
-                                        <li><a class="dropdown-item" href="@Url.Action("GestionPacientes", "Home")">Gestión de Pacientes</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Index", "Paciente")">Gestión de Pacientes</a></li>
                                         <li><a class="dropdown-item" href="@Url.Action("CitasMedicas", "Home")">Citas Médicas</a></li>
                                     }
                                     @if (rolUsuario == "Administrador")
