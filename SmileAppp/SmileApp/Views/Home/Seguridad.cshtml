@@ -1,197 +1,78 @@
-﻿@{
+﻿@model IEnumerable<SmileApp.Models.Usuario>
+@{
     ViewData["Title"] = "Seguridad y Acceso";
+    var filtroActual = Context.Request.Query["filtro"].ToString();
 }
 
-<div class="container-fluid">
-    <!-- Encabezado del Módulo -->
-    <div class="row mb-5 justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-lg">
-                <div class="card-header bg-info text-white text-center py-4">
-                    <h1 class="display-4 fw-bold">Módulo de Seguridad y Acceso</h1>
-                    <p class="lead">Aquí podrás gestionar la seguridad y los accesos de la clínica, incluyendo la creación, actualización y eliminación de usuarios, así como el manejo de roles.</p>
-                </div>
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold">Módulo de Seguridad y Acceso</h1>
+        <p class="lead">Gestiona los usuarios de la clínica: creación, edición y eliminación.</p>
+    </div>
+
+    <!-- Formulario de búsqueda -->
+    <form asp-action="Seguridad" method="get" class="mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 d-flex">
+                <input type="text" name="filtro" value="@Context.Request.Query["filtro"]" class="form-control me-2" placeholder="Buscar por nombre o correo" />
+                <button type="submit" class="btn btn-primary me-2 form-control" style="max-width: 110px;">Buscar</button>
+                <a href="@Url.Action("Seguridad", "Home")" class="btn btn-secondary form-control" style="max-width: 110px;">Limpiar</a>
             </div>
         </div>
+    </form>
+
+
+
+    <!-- Botón Crear Usuario -->
+    <div class="mb-3 text-end">
+        <a href="@Url.Action("Create", "Usuarios")" class="btn btn-success">
+            <i class="bi bi-person-plus"></i> Crear Usuario
+        </a>
     </div>
 
-    <!-- Crear Usuario -->
-    <!-- Botón para abrir el formulario de crear usuario -->
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Crear Usuario</h5>
-                    <!-- Botón para abrir el formulario de creación de usuario -->
-                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
-                        <i class="bi bi-person-plus"></i> Crear Usuario
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para crear el usuario -->
-    <div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="crearUsuarioModalLabel">Crear Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Formulario de creación de usuario -->
-                    <form id="formUsuario">
-                        <div class="mb-3">
-                            <label for="cedula" class="form-label">Cédula</label>
-                            <input type="text" class="form-control" id="cedula" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="correo" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="correo" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="contraseña" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="contraseña" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="rol" class="form-label">Rol</label>
-                            <select class="form-select" id="rol" required>
-                                <option value="">Selecciona el rol</option>
-                                <option value="Administrador">Administrador</option>
-                                <option value="Dr">Dr</option>
-                                <option value="Asistente">Asistente</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" id="guardarUsuario">Guardar Usuario</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        <!-- Buscar Usuario -->
-    <!-- Barra de Búsqueda de Usuario -->
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Buscar Usuario</h5>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="busquedaUsuario" placeholder="Buscar por nombre o cédula" aria-label="Buscar usuario" aria-describedby="buscar-button">
-                        <button class="btn btn-outline-secondary" type="button" id="buscar-button">
-                            <i class="bi bi-search"></i> Buscar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Aquí puedes agregar un lugar para mostrar los resultados de la búsqueda -->
-    <div id="resultadosBusqueda" class="mt-4">
-        <!-- Los resultados se mostrarán aquí después de realizar la búsqueda -->
-    </div>
-
-    <!-- Lista de Usuarios -->
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Usuarios Registrados</h5>
-                    <table class="table table-striped">
-                        <thead>
+    <!-- Tabla de usuarios -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-3">Usuarios Registrados</h5>
+            <table class="table table-bordered text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var usuario in Model)
+                        {
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Rol</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Juan Pérez</td>
-                                <td>juan@clinica.com</td>
-                                <td>Administrador</td>
+                                <td>@usuario.Id</td>
+                                <td>@usuario.Nombre</td>
+                                <td>@usuario.Correo</td>
+                                <td>@usuario.Rol?.Nombre</td>
                                 <td>
-                                    <a href="/Seguridad/Editar/1" class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="/Seguridad/Eliminar/1" class="btn btn-danger btn-sm">Eliminar</a>
+                                    <a href="@Url.Action("Edit", "Usuarios", new { id = usuario.Id })" class="btn btn-warning btn-sm me-1">Editar</a>
+                                    <form asp-action="Delete" asp-controller="Usuarios" asp-route-id="@usuario.Id" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Ana Gómez</td>
-                                <td>ana@clinica.com</td>
-                                <td>Doctor</td>
-                                <td>
-                                    <a href="/Seguridad/Editar/2" class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="/Seguridad/Eliminar/2" class="btn btn-danger btn-sm">Eliminar</a>
-                                </td>
-                            </tr>
-                            <!-- Aquí se agregarían los usuarios dinámicamente -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">No hay usuarios registrados.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- Formulario para Asignar Permisos a Roles -->
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Asignar Permisos a Roles</h5>
-
-                    <!-- Formulario -->
-                    <form id="formRolesPermisos">
-                        <div class="mb-3">
-                            <label for="rol" class="form-label">Seleccionar Rol</label>
-                            <select class="form-select" id="rol" required>
-                                <option value="" selected disabled>Seleccione un rol</option>
-                                <!-- Opciones de roles -->
-                                <option value="Administrador">Administrador</option>
-                                <option value="Dr.">Dr.</option>
-                                <option value="Asistente">Asistente</option>
-                            </select>
-                        </div>
-
-                        <!-- Permisos -->
-                        <div class="mb-3">
-                            <label class="form-label">Asignar Permisos</label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="permisoVerUsuarios" value="Ver Usuarios">
-                                <label class="form-check-label" for="permisoVerUsuarios">Ver Usuarios</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="permisoCrearUsuarios" value="Crear Usuarios">
-                                <label class="form-check-label" for="permisoCrearUsuarios">Crear Usuarios</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="permisoEditarUsuarios" value="Editar Usuarios">
-                                <label class="form-check-label" for="permisoEditarUsuarios">Editar Usuarios</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="permisoEliminarUsuarios" value="Eliminar Usuarios">
-                                <label class="form-check-label" for="permisoEliminarUsuarios">Eliminar Usuarios</label>
-                            </div>
-                        </div>
-
-                        <!-- Botón para Guardar -->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Asignar Permisos al Rol</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>

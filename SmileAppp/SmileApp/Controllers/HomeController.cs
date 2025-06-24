@@ -1,10 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using SmileApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SmileApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             var nombre = HttpContext.Session.GetString("NombreUsuario");
@@ -12,59 +21,24 @@ namespace SmileApp.Controllers
             return View();
         }
 
-        public IActionResult GestionPacientes()
-        {
-            if (!UsuarioTieneRol("Administrador", "Dentista"))
-                return RedirectToAction("AccesoDenegado");
-            return View();
-        }
-
-        public IActionResult GestionPacienteCreate()
-        {
-            if (!UsuarioTieneRol("Administrador", "Dentista"))
-                return RedirectToAction("AccesoDenegado");
-            return View();
-        }
-
-        public IActionResult CitasMedicas()
-        {
-            if (!UsuarioTieneRol("Administrador", "Dentista"))
-                return RedirectToAction("AccesoDenegado");
-            return View();
-        }
-
-        public IActionResult Inventario()
+        public IActionResult Seguridad(string filtro)
         {
             if (!UsuarioTieneRol("Administrador"))
                 return RedirectToAction("AccesoDenegado");
-            return View();
+
+            var usuarios = _context.Usuarios
+                                   .Include(u => u.Rol)
+                                   .AsQueryable();
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                usuarios = usuarios.Where(u => u.Nombre.Contains(filtro) || u.Correo.Contains(filtro));
+            }
+
+            return View(usuarios.ToList());
         }
 
-        public IActionResult Finanzas()
-        {
-            if (!UsuarioTieneRol("Administrador"))
-                return RedirectToAction("AccesoDenegado");
-            return View();
-        }
-
-        public IActionResult Reportes()
-        {
-            if (!UsuarioTieneRol("Administrador"))
-                return RedirectToAction("AccesoDenegado");
-            return View();
-        }
-
-        public IActionResult Seguridad()
-        {
-            if (!UsuarioTieneRol("Administrador"))
-                return RedirectToAction("AccesoDenegado");
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        // ...otros métodos...
 
         public IActionResult AccesoDenegado()
         {
