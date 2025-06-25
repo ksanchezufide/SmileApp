@@ -13,6 +13,8 @@ namespace SmileApp.Models
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<ArchivoPaciente> ArchivosPacientes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,8 +33,27 @@ namespace SmileApp.Models
             modelBuilder.Entity<Usuario>().Property(u => u.Estado).HasDefaultValue(true);
             modelBuilder.Entity<Usuario>().Property(u => u.FechaRegistro).HasDefaultValueSql("GETDATE()");
 
+            // Relación Usuario → Rol
+            modelBuilder.Entity<Usuario>()
+                .HasOne(u => u.Rol)
+                .WithMany(r => r.Usuarios)
+                .HasForeignKey(u => u.RolId)
+                .OnDelete(DeleteBehavior.Restrict); // Evita que se borre el rol si hay usuarios
+
             // Configuración de Rol
             modelBuilder.Entity<Rol>().Property(r => r.Nombre).IsRequired().HasMaxLength(50);
+
+            // Configuración de Paciente
+            modelBuilder.Entity<Paciente>()
+                .Property(p => p.FechaRegistro)
+                .HasDefaultValueSql("GETDATE()");
+
+            // Configuración de ArchivoPaciente
+            modelBuilder.Entity<ArchivoPaciente>()
+                .HasOne(a => a.Paciente)
+                .WithMany(p => p.Archivos)
+                .HasForeignKey(a => a.PacienteId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model SmileApp.Models.Paciente
+
+@{
+    ViewData["Title"] = "Eliminar Paciente";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-danger text-white text-center py-3 rounded-top-4">
+                    <h2 class="fw-bold mb-0">¿Estás seguro de eliminar este paciente?</h2>
+                </div>
+                <div class="card-body p-4">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 fw-semibold text-muted">Nombre</dt>
+                        <dd class="col-sm-8">@Model.Nombre</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Apellido</dt>
+                        <dd class="col-sm-8">@Model.Apellido</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Fecha de Nacimiento</dt>
+                        <dd class="col-sm-8">@Model.FechaNacimiento.ToString("dd/MM/yyyy")</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Sexo</dt>
+                        <dd class="col-sm-8">@Model.Sexo</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Teléfono</dt>
+                        <dd class="col-sm-8">@Model.Telefono</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Dirección</dt>
+                        <dd class="col-sm-8">@Model.Direccion</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Correo</dt>
+                        <dd class="col-sm-8">@Model.Correo</dd>
+
+                        <dt class="col-sm-4 fw-semibold text-muted">Fecha de Registro</dt>
+                        <dd class="col-sm-8">@Model.FechaRegistro.ToString("dd/MM/yyyy")</dd>
+                    </dl>
+                </div>
+                <div class="card-footer d-flex justify-content-between px-4 py-3 bg-light rounded-bottom-4">
+                    <form asp-action="Delete" class="m-0">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger rounded-pill px-4">Eliminar</button>
+                    </form>
+                    <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
