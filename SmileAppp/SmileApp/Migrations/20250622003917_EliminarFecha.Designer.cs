@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmileApp.Models;
 
@@ -11,9 +12,11 @@ using SmileApp.Models;
 namespace SmileApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250622003917_EliminarFecha")]
+    partial class EliminarFecha
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -222,9 +225,9 @@ namespace SmileApp.Migrations
             modelBuilder.Entity("SmileApp.Models.Usuario", b =>
                 {
                     b.HasOne("SmileApp.Models.Rol", "Rol")
-                        .WithMany("Usuarios")
+                        .WithMany()
                         .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Rol");
@@ -233,11 +236,6 @@ namespace SmileApp.Migrations
             modelBuilder.Entity("SmileApp.Models.Paciente", b =>
                 {
                     b.Navigation("Archivos");
-                });
-
-            modelBuilder.Entity("SmileApp.Models.Rol", b =>
-                {
-                    b.Navigation("Usuarios");
                 });
 #pragma warning restore 612, 618
         }

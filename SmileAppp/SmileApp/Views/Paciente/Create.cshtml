@@ -1,0 +1,89 @@
+﻿@model SmileApp.Models.Paciente
+
+@{
+    ViewData["Title"] = "Crear Paciente";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
+                    <h2 class="fw-bold mb-0">Registrar Nuevo Paciente</h2>
+                </div>
+                <div class="card-body p-4">
+                    <!-- IMPORTANTE: enctype para archivos -->
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Nombre" class="form-label fw-semibold">Nombre</label>
+                            <input asp-for="Nombre" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="Nombre" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Apellido" class="form-label fw-semibold">Apellido</label>
+                            <input asp-for="Apellido" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="Apellido" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="FechaNacimiento" class="form-label fw-semibold">Fecha de Nacimiento</label>
+                            <input asp-for="FechaNacimiento" type="date" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="FechaNacimiento" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Sexo" class="form-label fw-semibold">Sexo</label>
+                            <select asp-for="Sexo" class="form-select rounded-3 shadow-sm">
+                                <option value="">-- Seleccione --</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <span asp-validation-for="Sexo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Telefono" class="form-label fw-semibold">Teléfono</label>
+                            <input asp-for="Telefono" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="Telefono" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Direccion" class="form-label fw-semibold">Dirección</label>
+                            <input asp-for="Direccion" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="Direccion" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Correo" class="form-label fw-semibold">Correo</label>
+                            <input asp-for="Correo" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="Correo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Subida de archivos -->
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-semibold">Subir archivos</label>
+                            <input type="file" name="Archivos" multiple class="form-control rounded-3 shadow-sm" />
+                            <small class="form-text text-muted">Puede seleccionar imágenes o documentos.</small>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary rounded-pill px-4">Crear</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

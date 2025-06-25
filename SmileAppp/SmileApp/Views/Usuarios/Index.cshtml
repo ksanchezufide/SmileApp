@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SmileApp.Models.Usuario>
+@{
+    ViewData["Title"] = "Usuarios";
+    var filtro = Context.Request.Query["filtro"];
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Módulo de Seguridad y Acceso</h2>
+    <p class="text-center text-secondary mb-5">
+        Aquí podrás gestionar la seguridad y los accesos de la clínica, incluyendo la creación, actualización y eliminación de usuarios, así como el manejo de roles.
+    </p>
+
+    <div class="text-center mb-4">
+        <a href="@Url.Action("Create", "Usuarios")" class="btn btn-success">
+            <i class="bi bi-person-plus"></i> Crear Usuario
+        </a>
+    </div>
+
+    <form asp-action="Index" method="get" class="mb-4 d-flex justify-content-center">
+        <input type="text" name="filtro" class="form-control w-50 me-2" placeholder="Buscar por nombre o correo" value="@filtro" />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center">
+            No se encontraron usuarios que coincidan con el filtro.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@usuario.Id</td>
+                        <td>@usuario.Nombre</td>
+                        <td>@usuario.Correo</td>
+                        <td>@usuario.Rol?.Nombre</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Usuarios", new { id = usuario.Id })" class="btn btn-warning btn-sm me-1">Editar</a>
+                            <form asp-action="Delete" asp-controller="Usuarios" asp-route-id="@usuario.Id" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?');">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
