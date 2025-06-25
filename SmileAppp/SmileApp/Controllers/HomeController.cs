@@ -38,7 +38,6 @@ namespace SmileApp.Controllers
             return View(usuarios.ToList());
         }
 
-        // ...otros métodos...
 
         public IActionResult AccesoDenegado()
         {
