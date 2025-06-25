@@ -1,7 +1,22 @@
-﻿
+﻿@model IEnumerable<SmileApp.Models.Producto>
 ﻿@{
     ViewData["Title"] = "Inventario de la Clínica";
 }
+
+@if (TempData["BajoStockMensaje"] != null)
+{
+    <script>
+        alert('@TempData["BajoStockMensaje"]');
+    </script>
+}
+
+@if (TempData["AgotadoMensaje"] != null)
+{
+    <script>
+        alert('@TempData["AgotadoMensaje"]');
+    </script>
+}
+
 
 <div class="container-fluid">
     <!-- Encabezado del Módulo -->
