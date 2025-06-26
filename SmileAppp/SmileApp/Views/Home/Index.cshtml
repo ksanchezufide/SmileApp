@@ -6,13 +6,7 @@
     <!-- Sección de Bienvenida -->
     <header class="bg-info text-white text-center py-5">
         <div class="container">
-            <h1 class="display-4">
-                ¡Bienvenido a SmileApp!
-                @if (!string.IsNullOrEmpty(ViewBag.NombreUsuario))
-                {
-                    <span class="d-block h4 mt-3">Hola, @ViewBag.NombreUsuario</span>
-                }
-            </h1>
+            <h1 class="display-4">¡Bienvenido a SmileApp!</h1>
             <p class="lead">La plataforma administrativa para gestionar eficientemente la clínica dental.</p>
         </div>
     </header>
@@ -75,6 +69,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!-- Aquí irían las citas dinámicas para hoy -->
                                         <tr>
                                             <td>09:00 AM</td>
                                             <td>Juan Pérez</td>
@@ -216,6 +211,7 @@
     </section>
 </div>
 
+<!-- Script para gráfico de citas -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     var ctx = document.getElementById('citasPorHora').getContext('2d');
