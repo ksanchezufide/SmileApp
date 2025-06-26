@@ -2,36 +2,67 @@
 @{
     ViewData["Title"] = "Seguridad y Acceso";
     var filtroActual = Context.Request.Query["filtro"].ToString();
+    var total = Model.Count();
+    var admins = Model.Count(u => u.Rol?.Nombre == "Administrador");
+    var dentistas = Model.Count(u => u.Rol?.Nombre == "Dentista");
 }
 
 <div class="container mt-5">
 
-    <div class="text-center mb-4">
-        <h1 class="display-5 fw-bold">Módulo de Seguridad y Acceso</h1>
-        <p class="lead">Gestiona los usuarios de la clínica: creación, edición y eliminación.</p>
+    <!-- Encabezado -->
+    <div class="text-center bg-info text-white py-4 rounded shadow-sm mb-4">
+        <h2 class="fw-bold">Módulo de Seguridad y Acceso</h2>
+        <p>Gestiona los usuarios del sistema: creación, edición y eliminación.</p>
     </div>
 
-    <!-- Formulario de búsqueda -->
-    <form asp-action="Seguridad" method="get" class="mb-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6 d-flex">
-                <input type="text" name="filtro" value="@Context.Request.Query["filtro"]" class="form-control me-2" placeholder="Buscar por nombre o correo" />
-                <button type="submit" class="btn btn-primary me-2 form-control" style="max-width: 110px;">Buscar</button>
-                <a href="@Url.Action("Seguridad", "Home")" class="btn btn-secondary form-control" style="max-width: 110px;">Limpiar</a>
+    <!-- Resumen General -->
+    <h4 class="text-center mb-3 fw-bold">Resumen General</h4>
+    <div class="row text-center mb-4">
+        <div class="col-md-4">
+            <div class="bg-primary text-white p-3 rounded shadow-sm">
+                <h5>Total Usuarios</h5>
+                <p>@total registrados</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-success text-white p-3 rounded shadow-sm">
+                <h5>Administradores</h5>
+                <p>@admins usuarios</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-warning text-white p-3 rounded shadow-sm">
+                <h5>Dentistas</h5>
+                <p>@dentistas usuarios</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros + Botones -->
+    <form asp-action="Seguridad" method="get" class="card p-3 shadow-sm mb-4">
+        <div class="row g-2 align-items-center">
+            <div class="col-md-6">
+                <input type="text" name="filtro" value="@filtroActual" class="form-control" placeholder="Buscar por nombre o correo" />
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-funnel-fill"></i> Filtrar
+                </button>
+            </div>
+            <div class="col-md-auto">
+                <a href="@Url.Action("Seguridad", "Home")" class="btn btn-secondary w-100">
+                    Limpiar
+                </a>
+            </div>
+            <div class="col-md-auto ms-auto">
+                <a href="@Url.Action("Create", "Usuarios")" class="btn btn-success w-100">
+                    <i class="bi bi-person-plus"></i> Agregar Usuario
+                </a>
             </div>
         </div>
     </form>
 
-
-
-    <!-- Botón Crear Usuario -->
-    <div class="mb-3 text-end">
-        <a href="@Url.Action("Create", "Usuarios")" class="btn btn-success">
-            <i class="bi bi-person-plus"></i> Crear Usuario
-        </a>
-    </div>
-
-    <!-- Tabla de usuarios -->
+    <!-- Tabla de Usuarios -->
     <div class="card shadow-sm">
         <div class="card-body">
             <h5 class="card-title text-center mb-3">Usuarios Registrados</h5>
