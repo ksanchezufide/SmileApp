@@ -36,6 +36,7 @@
 
     <style>
         @@keyframes popUp {
+
             0%
 
         {
@@ -52,6 +53,7 @@
             transform: scale(1);
             box-shadow: 0 0 10px 0 #ffc107;
         }
+
 
         }
     </style>
@@ -129,12 +131,12 @@
                 <form method="get" asp-action="Index">
                     <div class="row g-3 align-items-end">
                         <div class="col-md-4">
-                            <label class="form-label">Buscar por nombre o descripción</label>
-                            <input type="text" name="buscar" value="@Context.Request.Query["buscar"]" class="form-control" placeholder="Ej. mascarilla, pasta dental" />
+                            <label class="producto-filtro-label">Buscar por nombre o descripción</label>
+                            <input type="text" name="buscar" value="@Context.Request.Query["buscar"]" class="form-control producto-filtro-input" placeholder="Ej. mascarilla, pasta dental" />
                         </div>
                         <div class="col-md-3">
-                            <label class="form-label">Estado de Stock</label>
-                            <select name="estado" class="form-select">
+                            <label class="producto-filtro-label">Estado de Stock</label>
+                            <select name="estado" class="form-select producto-filtro-select">
                                 <option value="">-- Todos --</option>
                                 <option value="agotado" selected="@(Context.Request.Query["estado"] == "agotado")">Agotado</option>
                                 <option value="bajo" selected="@(Context.Request.Query["estado"] == "bajo")">Bajo stock</option>
@@ -142,15 +144,15 @@
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <label class="form-label">Estado</label>
-                            <select name="activo" class="form-select">
+                            <label class="producto-filtro-label">Estado</label>
+                            <select name="activo" class="form-select producto-filtro-select">
                                 <option value="">-- Todos --</option>
                                 <option value="true" selected="@(Context.Request.Query["activo"] == "true")">Activos</option>
                                 <option value="false" selected="@(Context.Request.Query["activo"] == "false")">Inactivos</option>
                             </select>
                         </div>
                         <div class="col-md-2 d-grid">
-                            <button type="submit" class="btn btn-primary">Filtrar</button>
+                            <button type="submit" class="btn btn-primary" style="height:2.5rem; font-size:1.1rem;">Filtrar</button>
                         </div>
                     </div>
                 </form>
