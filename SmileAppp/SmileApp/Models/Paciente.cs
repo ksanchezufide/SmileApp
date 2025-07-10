@@ -40,6 +40,7 @@ namespace SmileApp.Models
 
         // Relación con archivos
         public ICollection<ArchivoPaciente> Archivos { get; set; }
+        public ICollection<CitaMedica> CitasMedicas { get; set; }
     }
 }
 

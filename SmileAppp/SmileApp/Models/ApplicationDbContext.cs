@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmileApp.Models;
 
 namespace SmileApp.Models
 {
@@ -15,6 +16,7 @@ namespace SmileApp.Models
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<ArchivoPaciente> ArchivosPacientes { get; set; }
+        public DbSet<CitaMedica> CitasMedicas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -55,5 +57,6 @@ namespace SmileApp.Models
                 .HasForeignKey(a => a.PacienteId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
+        public DbSet<SmileApp.Models.CitaMedica> CitaMedica { get; set; } = default!;
     }
 }

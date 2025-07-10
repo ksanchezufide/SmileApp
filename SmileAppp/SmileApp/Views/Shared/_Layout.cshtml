@@ -35,7 +35,7 @@ var rolUsuario = Context.Session.GetString("Rol");
                                     @if (rolUsuario == "Administrador" || rolUsuario == "Dentista")
                                     {
                                         <li><a class="dropdown-item" href="@Url.Action("Index", "Paciente")">Gestión de Pacientes</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("CitasMedicas", "Home")">Citas Médicas</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Index", "CitaMedicas")">Citas Médicas</a></li>
                                     }
                                     @if (rolUsuario == "Administrador")
                                     {
