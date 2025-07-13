@@ -29,6 +29,12 @@
                         </div>
 
                         <div class="mb-3">
+                            <label asp-for="Cedula" class="form-label fw-semibold">Cédula</label>
+                            <input asp-for="Cedula" class="form-control rounded-pill" />
+                            <span asp-validation-for="Cedula" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
                             <label asp-for="FechaNacimiento" class="form-label fw-semibold">Fecha de Nacimiento</label>
                             <input asp-for="FechaNacimiento" type="date" class="form-control rounded-pill" />
                             <span asp-validation-for="FechaNacimiento" class="text-danger small"></span>
