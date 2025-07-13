@@ -55,35 +55,6 @@ namespace SmileApp.Migrations
                     b.ToTable("ArchivosPacientes");
                 });
 
-            modelBuilder.Entity("SmileApp.Models.CitaMedica", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.Property<TimeSpan>("Hora")
-                        .HasColumnType("time");
-
-                    b.Property<int>("PacienteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PacienteId");
-
-                    b.ToTable("CitaMedica");
-                });
-
             modelBuilder.Entity("SmileApp.Models.Paciente", b =>
                 {
                     b.Property<int>("Id")
@@ -246,17 +217,6 @@ namespace SmileApp.Migrations
                 {
                     b.HasOne("SmileApp.Models.Paciente", "Paciente")
                         .WithMany("Archivos")
-                        .HasForeignKey("PacienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Paciente");
-                });
-
-            modelBuilder.Entity("SmileApp.Models.CitaMedica", b =>
-                {
-                    b.HasOne("SmileApp.Models.Paciente", "Paciente")
-                        .WithMany()
                         .HasForeignKey("PacienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
