@@ -17,7 +17,9 @@ var rolUsuario = Context.Session.GetString("Rol");
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right, #4e54c8, #0088ff);">
             <div class="container-fluid">
-                <span class="navbar-brand fw-bold text-white" style="font-size:1.5rem;">SmileApp</span>
+                <a href="/Home/Index" class="navbar-brand fw-bold text-white" style="font-size:1.5rem;">SmileApp</a>
+
+
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                     <span class="navbar-toggler-icon"></span>
@@ -35,7 +37,7 @@ var rolUsuario = Context.Session.GetString("Rol");
                                     @if (rolUsuario == "Administrador" || rolUsuario == "Dentista")
                                     {
                                         <li><a class="dropdown-item" href="@Url.Action("Index", "Paciente")">Gestión de Pacientes</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("CitasMedicas", "Home")">Citas Médicas</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Index", "Citas")">Citas Médicas</a></li>
                                     }
                                     @if (rolUsuario == "Administrador")
                                     {
