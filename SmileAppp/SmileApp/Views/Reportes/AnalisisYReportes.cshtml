@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Análisis y Reportes";
+}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Pacientes por Género</h5>
+                    <canvas id="genderPatientsChart" width="350" height="350"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Citas por Motivo</h5>
+                    <canvas id="motivoChart" width="350" height="350"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Pacientes con Más Citas</h5>
+                    <canvas id="topPacientesChart" width="350" height="350"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Pacientes por Dirección</h5>
+                    <canvas id="direccionChart" width="350" height="350"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Pacientes por Género
+    var pacientesPorGenero = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.PacientesPorGenero ?? new object[0]));
+    new Chart(document.getElementById('genderPatientsChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: pacientesPorGenero.map(x => x.Sexo),
+            datasets: [{
+                data: pacientesPorGenero.map(x => x.Total),
+                backgroundColor: ['#4e54c8', '#00c6ff', '#ffc107']
+            }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    });
+
+    // Citas por Motivo
+    var citasPorMotivo = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.CitasPorMotivo ?? new object[0]));
+    new Chart(document.getElementById('motivoChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: citasPorMotivo.map(x => x.Motivo),
+            datasets: [{
+                label: 'Citas',
+                data: citasPorMotivo.map(x => x.Total),
+                borderColor: '#00c6ff',
+                backgroundColor: 'rgba(0,198,255,0.1)',
+                fill: true,
+                tension: 0.3,
+                pointBackgroundColor: '#4e54c8',
+                pointRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'bottom' } },
+            scales: {
+                x: { title: { display: true, text: 'Motivo' } },
+                y: { beginAtZero: true, title: { display: true, text: 'Cantidad de Citas' } }
+            }
+        }
+    });
+
+    // Pacientes con Más Citas
+    var topPacientes = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.TopPacientes ?? new object[0]));
+    new Chart(document.getElementById('topPacientesChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: topPacientes.map(x => x.Paciente),
+            datasets: [{
+                label: 'Citas',
+                data: topPacientes.map(x => x.Total),
+                backgroundColor: ['#4e54c8', '#00c6ff', '#ffc107', '#43e97b', '#ff6a00']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { title: { display: true, text: 'Paciente' } },
+                y: { beginAtZero: true, title: { display: true, text: 'Cantidad de Citas' } }
+            }
+        }
+    });
+
+    // Pacientes por Dirección
+    var pacientesPorDireccion = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.PacientesPorDireccion ?? new object[0]));
+    new Chart(document.getElementById('direccionChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: pacientesPorDireccion.map(x => x.Direccion),
+            datasets: [{
+                label: 'Pacientes',
+                data: pacientesPorDireccion.map(x => x.Total),
+                backgroundColor: ['#00c6ff', '#ffc107', '#4e54c8', '#43e97b', '#ff6a00']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { title: { display: true, text: 'Dirección' } },
+                y: { beginAtZero: true, title: { display: true, text: 'Cantidad de Pacientes' } }
+            }
+        }
+    });
+</script>
