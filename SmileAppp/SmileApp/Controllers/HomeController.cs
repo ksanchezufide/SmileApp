@@ -49,5 +49,10 @@ namespace SmileApp.Controllers
             var rolUsuario = HttpContext.Session.GetString("Rol");
             return rolesPermitidos.Contains(rolUsuario);
         }
+
+        public IActionResult CitasMedicas()
+        {
+            return View();
+        }
     }
 }
