@@ -1,7 +1,7 @@
 ﻿@model SmileApp.Models.Cita
 
 @{
-    ViewData["Title"] = "Agendar Cita";
+    ViewData["Title"] = "Crear Cita";
 }
 
 <div class="container mt-5">
@@ -9,11 +9,17 @@
         <div class="col-md-8">
             <div class="card shadow-lg border-0 rounded-4">
                 <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
-                    <h2 class="fw-bold mb-0">Agendar Nueva Cita</h2>
+                    <h2 class="fw-bold mb-0">Registrar Nueva Cita</h2>
                 </div>
                 <div class="card-body p-4">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="NombrePaciente" class="form-label fw-semibold">Nombre del Paciente</label>
+                            <input asp-for="NombrePaciente" class="form-control rounded-3 shadow-sm" />
+                            <span asp-validation-for="NombrePaciente" class="text-danger small"></span>
+                        </div>
 
                         <div class="form-group mb-3">
                             <label asp-for="FechaHora" class="form-label fw-semibold">Fecha y Hora</label>
@@ -29,33 +35,23 @@
 
                         <div class="form-group mb-3">
                             <label asp-for="Observaciones" class="form-label fw-semibold">Observaciones</label>
-                            <textarea asp-for="Observaciones" class="form-control rounded-3 shadow-sm" rows="3"></textarea>
+                            <textarea asp-for="Observaciones" class="form-control rounded-3 shadow-sm"></textarea>
                             <span asp-validation-for="Observaciones" class="text-danger small"></span>
                         </div>
 
                         <div class="form-group mb-3">
                             <label asp-for="Estado" class="form-label fw-semibold">Estado</label>
                             <select asp-for="Estado" class="form-select rounded-3 shadow-sm">
-                                <option value="">-- Seleccione --</option>
                                 <option value="Pendiente">Pendiente</option>
                                 <option value="Confirmada">Confirmada</option>
-                                <option value="Completada">Completada</option>
                                 <option value="Cancelada">Cancelada</option>
                             </select>
                             <span asp-validation-for="Estado" class="text-danger small"></span>
                         </div>
 
-                        <div class="form-group mb-4">
-                            <label asp-for="PacienteId" class="form-label fw-semibold">Paciente</label>
-                            <select asp-for="PacienteId" class="form-select rounded-3 shadow-sm" asp-items="ViewBag.PacienteId">
-                                <option value="">-- Seleccione un paciente --</option>
-                            </select>
-                            <span asp-validation-for="PacienteId" class="text-danger small"></span>
-                        </div>
-
                         <div class="d-flex justify-content-between">
                             <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Cancelar</a>
-                            <button type="submit" class="btn btn-primary rounded-pill px-4">Agendar</button>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4">Crear</button>
                         </div>
                     </form>
                 </div>
@@ -65,5 +61,7 @@
 </div>
 
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

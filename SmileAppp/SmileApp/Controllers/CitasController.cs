@@ -20,31 +20,36 @@ namespace SmileApp.Controllers
         // GET: Citas
         public async Task<IActionResult> Index()
         {
-            var citas = _context.Citas.Include(c => c.Paciente);
-            return View(await citas.ToListAsync());
+            var citas = await _context.Citas
+                .OrderByDescending(c => c.FechaHora)
+                .ToListAsync();
+
+            return View(citas);
+        }
+
+        // GET: Citas/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var cita = await _context.Citas.FirstOrDefaultAsync(c => c.Id == id);
+            if (cita == null)
+                return NotFound();
+
+            return View(cita);
         }
 
         // GET: Citas/Create
         public IActionResult Create()
         {
-            ViewData["PacienteId"] = new SelectList(
-                _context.Pacientes.Select(p => new {
-                    p.Id,
-                    NombreCompleto = p.Nombre + " " + p.Apellido
-                }),
-                "Id",
-                "NombreCompleto"
-            );
-
-            ViewData["Estado"] = new SelectList(Enum.GetValues(typeof(EstadoCita)));
-
             return View();
         }
 
         // POST: Citas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FechaHora,Motivo,Observaciones,Estado,PacienteId")] Cita cita)
+        public async Task<IActionResult> Create(Cita cita)
         {
             if (ModelState.IsValid)
             {
@@ -53,41 +58,18 @@ namespace SmileApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Recargar los dropdowns en caso de error para que la vista los tenga disponibles
-            ViewData["PacienteId"] = new SelectList(
-                _context.Pacientes.Select(p => new {
-                    p.Id,
-                    NombreCompleto = p.Nombre + " " + p.Apellido
-                }),
-                "Id",
-                "NombreCompleto",
-                cita.PacienteId
-            );
-
-            ViewData["Estado"] = new SelectList(Enum.GetValues(typeof(EstadoCita)), cita.Estado);
-
             return View(cita);
         }
 
         // GET: Citas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             var cita = await _context.Citas.FindAsync(id);
-            if (cita == null) return NotFound();
-
-            ViewData["PacienteId"] = new SelectList(
-                _context.Pacientes.Select(p => new {
-                    p.Id,
-                    NombreCompleto = p.Nombre + " " + p.Apellido
-                }),
-                "Id",
-                "NombreCompleto",
-                cita.PacienteId
-            );
-
-            ViewData["Estado"] = new SelectList(Enum.GetValues(typeof(EstadoCita)), cita.Estado);
+            if (cita == null)
+                return NotFound();
 
             return View(cita);
         }
@@ -95,9 +77,10 @@ namespace SmileApp.Controllers
         // POST: Citas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FechaHora,Motivo,Observaciones,Estado,PacienteId")] Cita cita)
+        public async Task<IActionResult> Edit(int id, Cita cita)
         {
-            if (id != cita.Id) return NotFound();
+            if (id != cita.Id)
+                return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -113,20 +96,9 @@ namespace SmileApp.Controllers
                     else
                         throw;
                 }
+
                 return RedirectToAction(nameof(Index));
             }
-
-            ViewData["PacienteId"] = new SelectList(
-                _context.Pacientes.Select(p => new {
-                    p.Id,
-                    NombreCompleto = p.Nombre + " " + p.Apellido
-                }),
-                "Id",
-                "NombreCompleto",
-                cita.PacienteId
-            );
-
-            ViewData["Estado"] = new SelectList(Enum.GetValues(typeof(EstadoCita)), cita.Estado);
 
             return View(cita);
         }
@@ -134,18 +106,18 @@ namespace SmileApp.Controllers
         // GET: Citas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
-            var cita = await _context.Citas
-                .Include(c => c.Paciente)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (cita == null) return NotFound();
+            var cita = await _context.Citas.FirstOrDefaultAsync(c => c.Id == id);
+            if (cita == null)
+                return NotFound();
 
             return View(cita);
         }
 
         // POST: Citas/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -155,6 +127,7 @@ namespace SmileApp.Controllers
                 _context.Citas.Remove(cita);
                 await _context.SaveChangesAsync();
             }
+
             return RedirectToAction(nameof(Index));
         }
 
