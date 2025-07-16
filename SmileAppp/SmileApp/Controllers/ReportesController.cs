@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmileApp.Models; 
 
@@ -31,14 +31,14 @@ namespace SmileApp.Controllers
             ViewBag.CitasPorMotivo = citasPorMotivo;
 
             // 1. Paciente con más Citas (Top 5)
+            // Top 5 Pacientes con más citas usando solo NombrePaciente
             var topPacientes = _context.Citas
-                .Include(c => c.Paciente)
-                .ToList()
-                .GroupBy(c => c.Paciente.Nombre + " " + c.Paciente.Apellido)
+                .GroupBy(c => c.NombrePaciente)
                 .Select(g => new { Paciente = g.Key, Total = g.Count() })
                 .OrderByDescending(g => g.Total)
                 .Take(5)
                 .ToList();
+
             ViewBag.TopPacientes = topPacientes;
 
             // 2. Número de Pacientes por Dirección
