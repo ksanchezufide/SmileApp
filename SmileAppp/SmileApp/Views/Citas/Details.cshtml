@@ -1,0 +1,41 @@
+﻿@model SmileApp.Models.Cita
+
+@{
+    ViewData["Title"] = "Detalle de Cita";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-header bg-info text-white text-center py-3 rounded-top-4">
+                    <h2 class="fw-bold mb-0">Detalle de la Cita</h2>
+                </div>
+                <div class="card-body p-4">
+
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">Nombre del Paciente</dt>
+                        <dd class="col-sm-8">@Model.NombrePaciente</dd>
+
+                        <dt class="col-sm-4">Fecha y Hora</dt>
+                        <dd class="col-sm-8">@Model.FechaHora.ToString("f")</dd>
+
+                        <dt class="col-sm-4">Motivo</dt>
+                        <dd class="col-sm-8">@Model.Motivo</dd>
+
+                        <dt class="col-sm-4">Observaciones</dt>
+                        <dd class="col-sm-8">@Model.Observaciones</dd>
+
+                        <dt class="col-sm-4">Estado</dt>
+                        <dd class="col-sm-8">@Model.Estado</dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-primary rounded-pill px-4">Volver</a>
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info text-white rounded-pill px-4">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

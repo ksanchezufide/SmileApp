@@ -28,7 +28,9 @@ namespace SmileApp.Controllers
             {
                 buscar = buscar.ToLower();
                 pacientes = pacientes.Where(p =>
-                    (p.Nombre + " " + p.Apellido).ToLower().Contains(buscar)).ToList();
+                    (p.Nombre + " " + p.Apellido).ToLower().Contains(buscar) ||
+                    (!string.IsNullOrEmpty(p.Cedula) && p.Cedula.ToLower().Contains(buscar))
+                ).ToList();
             }
 
             if (!string.IsNullOrEmpty(sexo))
@@ -168,6 +170,25 @@ namespace SmileApp.Controllers
         private bool PacienteExists(int id)
         {
             return _context.Pacientes.Any(e => e.Id == id);
+        }
+
+        //DELETE ARCHIVOS DE PACIENTE
+        [HttpPost]
+        public async Task<IActionResult> EliminarArchivo(int id)
+        {
+            var archivo = await _context.ArchivosPacientes.FindAsync(id);
+            if (archivo == null)
+                return NotFound();
+
+            // Eliminar archivo físico
+            var rutaArchivo = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", archivo.RutaArchivo.TrimStart('/'));
+            if (System.IO.File.Exists(rutaArchivo))
+                System.IO.File.Delete(rutaArchivo);
+
+            _context.ArchivosPacientes.Remove(archivo);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Details", new { id = archivo.PacienteId });
         }
 
         // 🔁 Reutilizable: Método privado para guardar archivos
