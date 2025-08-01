@@ -16,6 +16,8 @@ namespace SmileApp.Models
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<ArchivoPaciente> ArchivosPacientes { get; set; }
         public DbSet<Cita> Citas { get; set; }
+        public DbSet<Ingreso> Ingresos { get; set; }
+        public DbSet<Gasto> Gastos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<SmileApp.Models.Ingreso>
+
+@{
+    ViewData["Title"] = "Ingresos de la Clínica";
+    var totalIngresos = ViewBag.TotalIngresos ?? 0M;
+    var efectivo = ViewBag.TotalEfectivo ?? 0M;
+    var tarjeta = ViewBag.TotalTarjeta ?? 0M;
+    var transferencia = ViewBag.TotalTransferencia ?? 0M;
+    var filtro = Context.Request.Query["filtro"].ToString();
+
+    Func<decimal, string> formatearColones = valor => $"₡{valor:N2}".Replace(",", "X").Replace(".", ",").Replace("X", ".");
+}
+
+<div class="container mt-5">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-white p-4 rounded" style="background-color: #198754;">Módulo de Finanzas - Ingresos</h1>
+        <p class="lead">Consulta todos los ingresos generados por servicios brindados en la clínica.</p>
+    </div>
+
+    <!-- Resumen General -->
+    <h3 class="text-center mt-4 mb-4">Resumen General</h3>
+    <div class="row text-center mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Total Ingresos</h5>
+                    <p class="card-text">@Model.Count() registros</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Monto Total</h5>
+                    <p class="card-text">@formatearColones((decimal)totalIngresos)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-white bg-info shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Efectivo</h5>
+                    <p class="card-text">@formatearColones((decimal)efectivo)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-white bg-warning shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Tarjeta</h5>
+                    <p class="card-text">@formatearColones((decimal)tarjeta)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card text-white bg-dark shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Transferencia</h5>
+                    <p class="card-text">@formatearColones((decimal)transferencia)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtro y botón -->
+    <form asp-action="Ingresos" method="get" class="row justify-content-center mb-4">
+        <div class="col-md-5">
+            <input type="text" name="filtro" value="@filtro" class="form-control" placeholder="Buscar por descripción o tipo de pago" />
+        </div>
+        <div class="col-md-2 text-center">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a asp-action="Ingresos" class="btn btn-secondary">Limpiar</a>
+        </div>
+        <div class="col-md-3 text-end">
+            <a asp-action="CrearIngreso" class="btn btn-success">Agregar Ingreso</a>
+        </div>
+    </form>
+
+    <!-- Tabla -->
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                    <th>Tipo de Pago</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="5">No hay ingresos registrados.</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var ingreso in Model)
+                    {
+                        <tr>
+                            <td>@ingreso.Id</td>
+                            <td>@ingreso.Descripcion</td>
+                            <td>@formatearColones(ingreso.Monto)</td>
+                            <td>@ingreso.TipoPago</td>
+                            <td>@ingreso.FechaTransaccion.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Resumen Financiero";
+
+    decimal totalIngresos = ViewBag.TotalIngresos ?? 0;
+    decimal totalGastos = ViewBag.TotalGastos ?? 0;
+    decimal balance = totalIngresos - totalGastos;
+
+    Func<decimal, string> formatearColones = valor => $"₡{valor:N2}".Replace(",", "X").Replace(".", ",").Replace("X", ".");
+}
+
+<div class="container mt-5">
+    <!-- Encabezado -->
+    <div class="text-center mb-4">
+        <div class="bg-info text-white py-4 rounded shadow">
+            <h2 class="fw-bold">Módulo de Finanzas</h2>
+            <p class="mb-0">Gestiona los ingresos y gastos de la clínica de forma eficiente.</p>
+        </div>
+    </div>
+
+    <!-- Resumen General -->
+    <h3 class="text-center fw-bold mb-4">Resumen General</h3>
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Ingresos</h5>
+                    <p class="h4">@formatearColones(totalIngresos)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Gastos</h5>
+                    <p class="h4">@formatearColones(totalGastos)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-info shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Balance</h5>
+                    <p class="h4">@formatearColones(balance)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="text-center mb-4">
+        <a asp-action="Ingresos" class="btn btn-success me-2">Ver Ingresos</a>
+        <a asp-action="Gastos" class="btn btn-danger">Ver Gastos</a>
+    </div>
+
+    <p class="text-center text-muted">Accede a las vistas detalladas para agregar, editar o consultar transacciones.</p>
+</div>
