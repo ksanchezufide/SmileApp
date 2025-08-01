@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SmileApp.Models.Gasto>
+
+@{
+    ViewData["Title"] = "Gastos de la Clínica";
+    var filtroActual = Context.Request.Query["filtro"].ToString();
+    var totalGastos = ViewBag.TotalGastos != null ? (decimal)ViewBag.TotalGastos : 0;
+
+    Func<decimal, string> formatearColones = valor => $"₡{valor:N2}".Replace(",", "X").Replace(".", ",").Replace("X", ".");
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <div class="bg-danger text-white p-4 rounded shadow">
+            <h2 class="fw-bold">Módulo de Finanzas - Gastos</h2>
+            <p>Consulta todos los gastos realizados por la clínica en sus operaciones.</p>
+        </div>
+    </div>
+
+    <div class="text-center mb-4">
+        <h3 class="fw-bold">Resumen General</h3>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-2">
+            <div class="bg-primary text-white p-3 rounded shadow text-center">
+                <strong>Total Gastos</strong>
+                <div>@Model.Count() registros</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="bg-danger text-white p-3 rounded shadow text-center">
+                <strong>Monto Total</strong>
+                <div>@formatearColones(totalGastos)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center mb-4">
+        <div class="col-md-6">
+            <form asp-action="Gastos" method="get" class="d-flex">
+                <input type="text" name="filtro" value="@filtroActual" class="form-control me-2" placeholder="Buscar por descripción..." />
+                <button type="submit" class="btn btn-primary me-2">Filtrar</button>
+                <a asp-action="Gastos" class="btn btn-secondary me-2">Limpiar</a>
+            </form>
+        </div>
+        <div class="col-md-2 text-start">
+            <a asp-action="CrearGasto" class="btn btn-danger">Agregar Gasto</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-light text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="4">No hay gastos registrados.</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var gasto in Model)
+                    {
+                        <tr>
+                            <td>@gasto.Id</td>
+                            <td>@gasto.Descripcion</td>
+                            <td>@formatearColones(gasto.Monto)</td>
+                            <td>@gasto.FechaTransaccion.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
