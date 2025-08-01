@@ -172,22 +172,26 @@
             </div>
         </div>
     </section>
-
     <!-- Reportes y Estadísticas -->
     <section class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-4">Reportes y Estadísticas</h2>
             <p class="text-center">Consulta métricas y datos importantes de la clínica.</p>
             <div class="row">
+                <!-- Tarjeta Finanzas -->
                 <div class="col-md-4">
                     <div class="card shadow-lg border-light">
                         <div class="card-body text-center">
                             <h5 class="card-title">Finanzas</h5>
                             <p class="card-text">Monitorea ingresos y gastos de la clínica.</p>
-                            <a href="@Url.Action("Finanzas", "Home")" class="btn btn-info text-white">Ver Finanzas</a>
+                            <a href="@Url.Action("Index", "Finanzas")" class="btn btn-info text-white w-100">
+                                Ver Finanzas
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Tarjeta Análisis y Reportes -->
                 <div class="col-md-4">
                     <div class="card shadow-lg border-light">
                         <div class="card-body text-center">
@@ -197,6 +201,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Tarjeta Seguridad -->
                 <div class="col-md-4">
                     <div class="card shadow-lg border-light">
                         <div class="card-body text-center">
@@ -209,7 +215,6 @@
             </div>
         </div>
     </section>
-</div>
 
 <!-- Script para gráfico de citas -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

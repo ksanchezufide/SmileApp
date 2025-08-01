@@ -54,5 +54,11 @@ namespace SmileApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Finanzas()
+        {
+            return RedirectToAction("Index", "Finanzas");
+        }
+
     }
 }
