@@ -1,0 +1,32 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# ASP.NET logs
+*.log
+
+# User-specific files
+*.swp
+*.tmp
+*.bak
+
+# Dotnet stuff
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
