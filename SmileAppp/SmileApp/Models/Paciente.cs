@@ -8,6 +8,11 @@ namespace SmileApp.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Cédula")]
+        [MaxLength(10)]
+        public string Cedula { get; set; }
+
+        [Required]
         [MaxLength(100)]
         public string Nombre { get; set; }
 
