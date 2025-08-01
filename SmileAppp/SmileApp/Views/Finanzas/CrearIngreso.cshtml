@@ -1,0 +1,66 @@
+﻿@model SmileApp.Models.Ingreso
+@{
+    ViewData["Title"] = "Registrar Ingreso";
+}
+
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center text-success mb-4">Registrar Ingreso</h2>
+
+        <form asp-action="CrearIngreso" method="post">
+            <div class="mb-3">
+                <label asp-for="Descripcion" class="form-label">Descripción</label>
+                <input asp-for="Descripcion" class="form-control" maxlength="50" required />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Monto en colones</label>
+                <input type="text" id="MontoIngresoVisible" class="form-control" placeholder="₡0,00" />
+                <input type="hidden" asp-for="Monto" id="Monto" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="TipoPago" class="form-label">Tipo de Pago</label>
+                <select asp-for="TipoPago" class="form-select" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                    <option value="Transferencia">Transferencia</option>
+                </select>
+                <span asp-validation-for="TipoPago" class="text-danger"></span>
+            </div>
+
+            <div class="text-end">
+                <a asp-action="Ingresos" class="btn btn-secondary me-2">Cancelar</a>
+                <button type="submit" class="btn btn-success">Guardar Ingreso</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const visibleInputIngreso = document.getElementById("MontoIngresoVisible");
+        const hiddenInputIngreso = document.getElementById("Monto");
+
+        visibleInputIngreso.addEventListener("input", function () {
+            let raw = visibleInputIngreso.value.replace(/[₡\s\.,]/g, '');
+            let valor = parseFloat(raw) / 100;
+            if (!isNaN(valor)) {
+                hiddenInputIngreso.value = valor.toFixed(2);
+                visibleInputIngreso.value = new Intl.NumberFormat('es-CR', {
+                    style: 'currency',
+                    currency: 'CRC',
+                    minimumFractionDigits: 2
+                }).format(valor).replace('₡', '₡ ');
+            } else {
+                hiddenInputIngreso.value = "";
+            }
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

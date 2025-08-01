@@ -1,0 +1,55 @@
+﻿@model SmileApp.Models.Gasto
+@{
+    ViewData["Title"] = "Registrar Gasto";
+}
+
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center text-danger mb-4">Registrar Gasto</h2>
+
+        <form asp-action="CrearGasto" method="post">
+            <div class="mb-3">
+                <label asp-for="Descripcion" class="form-label">Descripción</label>
+                <input asp-for="Descripcion" class="form-control" maxlength="50" required />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Monto en colones</label>
+                <input type="text" id="MontoGastoVisible" class="form-control" placeholder="₡0,00" />
+                <input type="hidden" asp-for="Monto" id="Monto" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+
+            <div class="text-end">
+                <a asp-action="Gastos" class="btn btn-secondary me-2">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Guardar Gasto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const visibleInputGasto = document.getElementById("MontoGastoVisible");
+        const hiddenInputGasto = document.getElementById("Monto");
+
+        visibleInputGasto.addEventListener("input", function () {
+            let raw = visibleInputGasto.value.replace(/[₡\s\.,]/g, '');
+            let valor = parseFloat(raw) / 100;
+            if (!isNaN(valor)) {
+                hiddenInputGasto.value = valor.toFixed(2);
+                visibleInputGasto.value = new Intl.NumberFormat('es-CR', {
+                    style: 'currency',
+                    currency: 'CRC',
+                    minimumFractionDigits: 2
+                }).format(valor).replace('₡', '₡ ');
+            } else {
+                hiddenInputGasto.value = "";
+            }
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
