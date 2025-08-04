@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SmileApp.Models;
+using SmileApp.Services;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -55,6 +56,15 @@ namespace SmileApp.Controllers
             {
                 _context.Add(cita);
                 await _context.SaveChangesAsync();
+
+                // Enviar correo al paciente
+                var emailService = new EmailService();
+                await emailService.EnviarConfirmacionCitaAsync(
+                    cita.CorreoPaciente,
+                    cita.NombrePaciente,
+                    cita.FechaHora
+                );
+
                 return RedirectToAction(nameof(Index));
             }
 
