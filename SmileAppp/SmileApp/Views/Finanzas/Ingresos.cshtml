@@ -11,70 +11,129 @@
     Func<decimal, string> formatearColones = valor => $"₡{valor:N2}".Replace(",", "X").Replace(".", ",").Replace("X", ".");
 }
 
-<div class="container mt-5">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    .ingresos-header {
+        background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .ingresos-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    .card-ingreso {
+        border-radius: 12px;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+        .card-ingreso:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+    .btn-ingreso {
+        font-weight: 600;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+    }
+
+        .btn-ingreso:hover {
+            filter: brightness(0.95);
+        }
+</style>
+
+<div class="container-fluid py-4">
 
     <!-- Encabezado -->
-    <div class="text-center mb-4">
-        <h1 class="display-5 fw-bold text-white p-4 rounded" style="background-color: #198754;">Módulo de Finanzas - Ingresos</h1>
-        <p class="lead">Consulta todos los ingresos generados por servicios brindados en la clínica.</p>
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="ingresos-header text-center shadow">
+                <div class="ingresos-avatar">
+                    <i class="fas fa-hand-holding-dollar"></i>
+                </div>
+                <h2 class="fw-bold mb-1">Módulo de Finanzas - Ingresos</h2>
+                <p class="mb-0">Consulta todos los ingresos generados por servicios brindados en la clínica.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Resumen General -->
-    <h3 class="text-center mt-4 mb-4">Resumen General</h3>
-    <div class="row text-center mb-4">
+    <h3 class="text-center fw-bold mb-4"><i class="fas fa-chart-pie me-2"></i>Resumen General</h3>
+    <div class="row text-center mb-4 g-3">
         <div class="col-md-3">
-            <div class="card text-white bg-primary shadow">
+            <div class="card card-ingreso bg-primary bg-gradient text-white">
                 <div class="card-body">
-                    <h5 class="card-title">Total Ingresos</h5>
-                    <p class="card-text">@Model.Count() registros</p>
+                    <h5 class="card-title"><i class="fas fa-file-invoice me-2"></i>Total Ingresos</h5>
+                    <p class="h5">@Model.Count() registros</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card text-white bg-success shadow">
+            <div class="card card-ingreso bg-success bg-gradient text-white">
                 <div class="card-body">
-                    <h5 class="card-title">Monto Total</h5>
-                    <p class="card-text">@formatearColones((decimal)totalIngresos)</p>
+                    <h5 class="card-title"><i class="fas fa-coins me-2"></i>Monto Total</h5>
+                    <p class="h5">@formatearColones((decimal)totalIngresos)</p>
                 </div>
             </div>
         </div>
         <div class="col-md-2">
-            <div class="card text-white bg-info shadow">
+            <div class="card card-ingreso bg-info bg-gradient text-white">
                 <div class="card-body">
-                    <h5 class="card-title">Efectivo</h5>
-                    <p class="card-text">@formatearColones((decimal)efectivo)</p>
+                    <h5 class="card-title"><i class="fas fa-money-bill-wave me-2"></i>Efectivo</h5>
+                    <p class="h6">@formatearColones((decimal)efectivo)</p>
                 </div>
             </div>
         </div>
         <div class="col-md-2">
-            <div class="card text-white bg-warning shadow">
+            <div class="card card-ingreso bg-warning bg-gradient text-dark">
                 <div class="card-body">
-                    <h5 class="card-title">Tarjeta</h5>
-                    <p class="card-text">@formatearColones((decimal)tarjeta)</p>
+                    <h5 class="card-title"><i class="fas fa-credit-card me-2"></i>Tarjeta</h5>
+                    <p class="h6">@formatearColones((decimal)tarjeta)</p>
                 </div>
             </div>
         </div>
         <div class="col-md-2">
-            <div class="card text-white bg-dark shadow">
+            <div class="card card-ingreso bg-dark bg-gradient text-white">
                 <div class="card-body">
-                    <h5 class="card-title">Transferencia</h5>
-                    <p class="card-text">@formatearColones((decimal)transferencia)</p>
+                    <h5 class="card-title"><i class="fas fa-university me-2"></i>Transferencia</h5>
+                    <p class="h6">@formatearColones((decimal)transferencia)</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Filtro y botón -->
-    <form asp-action="Ingresos" method="get" class="row justify-content-center mb-4">
+    <!-- Filtro y botones -->
+    <form asp-action="Ingresos" method="get" class="row justify-content-center mb-4 g-2">
         <div class="col-md-5">
             <input type="text" name="filtro" value="@filtro" class="form-control" placeholder="Buscar por descripción o tipo de pago" />
         </div>
-        <div class="col-md-2 text-center">
-            <button type="submit" class="btn btn-primary">Filtrar</button>
-            <a asp-action="Ingresos" class="btn btn-secondary">Limpiar</a>
+        <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary btn-ingreso"><i class="fas fa-filter me-1"></i>Filtrar</button>
         </div>
-        <div class="col-md-3 text-end">
-            <a asp-action="CrearIngreso" class="btn btn-success">Agregar Ingreso</a>
+        <div class="col-md-2 d-grid">
+            <a asp-action="Ingresos" class="btn btn-secondary btn-ingreso"><i class="fas fa-eraser me-1"></i>Limpiar</a>
+        </div>
+        <div class="col-md-3 d-grid">
+            <a asp-action="CrearIngreso" class="btn btn-success btn-ingreso"><i class="fas fa-plus me-1"></i>Agregar Ingreso</a>
         </div>
     </form>
 
@@ -114,4 +173,10 @@
         </table>
     </div>
 
+    <!-- Botón de regreso -->
+    <div class="text-center mt-5">
+        <a asp-controller="Finanzas" asp-action="Index" class="btn btn-outline-primary btn-ingreso">
+            <i class="fas fa-arrow-left me-2"></i>Volver al Módulo de Finanzas
+        </a>
+    </div>
 </div>

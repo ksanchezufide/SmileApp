@@ -8,50 +8,109 @@
     Func<decimal, string> formatearColones = valor => $"₡{valor:N2}".Replace(",", "X").Replace(".", ",").Replace("X", ".");
 }
 
-<div class="container mt-5">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
-    <div class="text-center mb-4">
-        <div class="bg-danger text-white p-4 rounded shadow">
-            <h2 class="fw-bold">Módulo de Finanzas - Gastos</h2>
-            <p>Consulta todos los gastos realizados por la clínica en sus operaciones.</p>
-        </div>
-    </div>
+<style>
+    .gastos-header {
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-    <div class="text-center mb-4">
-        <h3 class="fw-bold">Resumen General</h3>
-    </div>
+    .gastos-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2.5rem;
+        color: white;
+    }
 
-    <div class="row justify-content-center mb-4">
-        <div class="col-md-2">
-            <div class="bg-primary text-white p-3 rounded shadow text-center">
-                <strong>Total Gastos</strong>
-                <div>@Model.Count() registros</div>
+    .card-gasto {
+        border-radius: 12px;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+        .card-gasto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+    .btn-gasto {
+        font-weight: 600;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+    }
+
+        .btn-gasto:hover {
+            filter: brightness(0.95);
+        }
+</style>
+
+<div class="container-fluid py-4">
+
+    <!-- Encabezado -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="gastos-header text-center shadow">
+                <div class="gastos-avatar">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h2 class="fw-bold mb-1">Módulo de Finanzas - Gastos</h2>
+                <p class="mb-0">Consulta todos los gastos realizados por la clínica en sus operaciones.</p>
             </div>
         </div>
-        <div class="col-md-2">
-            <div class="bg-danger text-white p-3 rounded shadow text-center">
-                <strong>Monto Total</strong>
-                <div>@formatearColones(totalGastos)</div>
+    </div>
+
+    <!-- Resumen -->
+    <h3 class="text-center fw-bold mb-4"><i class="fas fa-chart-line me-2"></i>Resumen General</h3>
+    <div class="row justify-content-center mb-4 g-3 text-center">
+        <div class="col-md-3">
+            <div class="card card-gasto bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-receipt me-2"></i>Total Gastos</h5>
+                    <p class="h5">@Model.Count() registros</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-gasto bg-danger text-white">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-coins me-2"></i>Monto Total</h5>
+                    <p class="h5">@formatearColones(totalGastos)</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-center align-items-center mb-4">
+    <!-- Filtro y botones -->
+    <div class="row justify-content-center align-items-center mb-4 g-2">
         <div class="col-md-6">
             <form asp-action="Gastos" method="get" class="d-flex">
                 <input type="text" name="filtro" value="@filtroActual" class="form-control me-2" placeholder="Buscar por descripción..." />
-                <button type="submit" class="btn btn-primary me-2">Filtrar</button>
-                <a asp-action="Gastos" class="btn btn-secondary me-2">Limpiar</a>
+                <button type="submit" class="btn btn-primary btn-gasto me-2"><i class="fas fa-filter me-1"></i>Filtrar</button>
+                <a asp-action="Gastos" class="btn btn-secondary btn-gasto me-2"><i class="fas fa-eraser me-1"></i>Limpiar</a>
             </form>
         </div>
-        <div class="col-md-2 text-start">
-            <a asp-action="CrearGasto" class="btn btn-danger">Agregar Gasto</a>
+        <div class="col-md-2 d-grid">
+            <a asp-action="CrearGasto" class="btn btn-danger btn-gasto"><i class="fas fa-plus me-1"></i>Agregar Gasto</a>
         </div>
     </div>
 
+    <!-- Tabla -->
     <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="table-light text-center">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-light">
                 <tr>
                     <th>ID</th>
                     <th>Descripción</th>
@@ -59,7 +118,7 @@
                     <th>Fecha</th>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody>
                 @if (!Model.Any())
                 {
                     <tr>
@@ -81,4 +140,12 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Botón de regreso -->
+    <div class="text-center mt-5">
+        <a asp-controller="Finanzas" asp-action="Index" class="btn btn-outline-danger btn-gasto">
+            <i class="fas fa-arrow-left me-2"></i>Volver al Módulo de Finanzas
+        </a>
+    </div>
+
 </div>

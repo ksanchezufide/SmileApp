@@ -2,11 +2,52 @@
     ViewData["Title"] = "Panel de Administración - SmileApp";
 }
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    .card-panel {
+        border-radius: 12px;
+        border: none;
+        transition: 0.3s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+        .card-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 1rem;
+        font-size: 2rem;
+        color: white;
+    }
+
+    .dashboard-header {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        padding: 3rem 1rem;
+        border-radius: 0 0 20px 20px;
+        color: white;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+</style>
+
 <div class="container-fluid p-0">
-    <!-- Sección de Bienvenida -->
-    <header class="bg-info text-white text-center py-5">
+
+    <!-- Encabezado -->
+    <header class="dashboard-header text-center mb-5">
         <div class="container">
-            <h1 class="display-4">¡Bienvenido a SmileApp!</h1>
+            <div class="icon-circle mb-3">
+                <i class="fas fa-tooth"></i>
+            </div>
+            <h1 class="display-5 fw-bold">¡Bienvenido a SmileApp!</h1>
             <p class="lead">La plataforma administrativa para gestionar eficientemente la clínica dental.</p>
         </div>
     </header>
@@ -14,11 +55,12 @@
     <!-- Estadísticas Rápidas -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4">Estadísticas Rápidas</h2>
+            <h2 class="text-center mb-4"><i class="fas fa-chart-bar me-2"></i>Estadísticas Rápidas</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center bg-white">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-2x text-primary mb-3"></i>
                             <h5 class="card-title">Pacientes Activos</h5>
                             <p class="display-4">350</p>
                             <p class="card-text">Número total de pacientes registrados en la clínica.</p>
@@ -26,8 +68,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center bg-white">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-check fa-2x text-success mb-3"></i>
                             <h5 class="card-title">Citas Programadas</h5>
                             <p class="display-4">15</p>
                             <p class="card-text">Citas médicas programadas para el día de hoy.</p>
@@ -35,8 +78,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center bg-white">
+                        <div class="card-body">
+                            <i class="fas fa-boxes fa-2x text-warning mb-3"></i>
                             <h5 class="card-title">Productos en Inventario</h5>
                             <p class="display-4">150</p>
                             <p class="card-text">Productos disponibles para su venta o uso en la clínica.</p>
@@ -50,12 +94,12 @@
     <!-- Dashboard de Citas -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4">Dashboard de Citas Médicas</h2>
+            <h2 class="text-center mb-4"><i class="fas fa-clock me-2"></i>Dashboard de Citas Médicas</h2>
 
-            <!-- Resumen de Citas del Día -->
+            <!-- Citas para Hoy -->
             <div class="row mb-4">
                 <div class="col-md-12">
-                    <div class="card shadow-lg border-light">
+                    <div class="card card-panel">
                         <div class="card-body">
                             <h5 class="card-title text-center">Citas para Hoy</h5>
                             <div class="table-responsive">
@@ -69,7 +113,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- Aquí irían las citas dinámicas para hoy -->
                                         <tr>
                                             <td>09:00 AM</td>
                                             <td>Juan Pérez</td>
@@ -96,10 +139,10 @@
                 </div>
             </div>
 
-            <!-- Gráfico de Citas por Hora -->
+            <!-- Gráfico de Citas -->
             <div class="row mb-4">
                 <div class="col-md-12">
-                    <div class="card shadow-lg border-light">
+                    <div class="card card-panel">
                         <div class="card-body">
                             <h5 class="card-title text-center">Gráfico de Citas por Hora</h5>
                             <canvas id="citasPorHora" height="200"></canvas>
@@ -111,7 +154,7 @@
             <!-- Próximas Citas -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card shadow-lg border-light">
+                    <div class="card card-panel">
                         <div class="card-body">
                             <h5 class="card-title text-center">Próximas Citas</h5>
                             <ul class="list-group">
@@ -132,83 +175,80 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Panel de Administración -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4">Panel de Administración</h2>
-            <p class="text-center">Accede a las herramientas de gestión para optimizar los procesos en la clínica.</p>
+            <h2 class="text-center mb-4"><i class="fas fa-tools me-2"></i>Panel de Administración</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center">
+                        <div class="card-body">
+                            <i class="fas fa-user-injured fa-2x text-info mb-3"></i>
                             <h5 class="card-title">Gestión de Pacientes</h5>
                             <p class="card-text">Administra el historial y datos de los pacientes.</p>
-                            <a href="@Url.Action("GestionPacientes", "Home")" class="btn btn-info text-white">Ir a Pacientes</a>
+                            <a href="@Url.Action("GestionPacientes", "Home")" class="btn btn-outline-info">Ir a Pacientes</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-alt fa-2x text-info mb-3"></i>
                             <h5 class="card-title">Gestión de Citas</h5>
                             <p class="card-text">Programa y organiza las citas médicas.</p>
-                            <a href="@Url.Action("CitasMedicas", "Home")" class="btn btn-info text-white">Ir a Citas</a>
+                            <a href="@Url.Action("CitasMedicas", "Home")" class="btn btn-outline-info">Ir a Citas</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center">
+                        <div class="card-body">
+                            <i class="fas fa-warehouse fa-2x text-info mb-3"></i>
                             <h5 class="card-title">Inventario</h5>
                             <p class="card-text">Controla los insumos y materiales de la clínica.</p>
-                            <a href="@Url.Action("Index", "Producto")" class="btn btn-info text-white">Ir a Inventario</a>
+                            <a href="@Url.Action("Index", "Producto")" class="btn btn-outline-info">Ir a Inventario</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Reportes y Estadísticas -->
+
+    <!-- Reportes -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4">Reportes y Estadísticas</h2>
-            <p class="text-center">Consulta métricas y datos importantes de la clínica.</p>
+            <h2 class="text-center mb-4"><i class="fas fa-file-alt me-2"></i>Reportes y Estadísticas</h2>
             <div class="row">
-                <!-- Tarjeta Finanzas -->
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center">
+                        <div class="card-body">
+                            <i class="fas fa-piggy-bank fa-2x text-info mb-3"></i>
                             <h5 class="card-title">Finanzas</h5>
                             <p class="card-text">Monitorea ingresos y gastos de la clínica.</p>
-                            <a href="@Url.Action("Index", "Finanzas")" class="btn btn-info text-white w-100">
-                                Ver Finanzas
-                            </a>
+                            <a href="@Url.Action("Index", "Finanzas")" class="btn btn-outline-info w-100">Ver Finanzas</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tarjeta Análisis y Reportes -->
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center">
+                        <div class="card-body">
+                            <i class="fas fa-chart-pie fa-2x text-info mb-3"></i>
                             <h5 class="card-title">Análisis y Reportes</h5>
                             <p class="card-text">Obtén reportes detallados sobre la clínica.</p>
-                            <a href="@Url.Action("Reportes", "Home")" class="btn btn-info text-white">Ver Reportes</a>
+                            <a href="@Url.Action("Reportes", "Home")" class="btn btn-outline-info">Ver Reportes</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tarjeta Seguridad -->
                 <div class="col-md-4">
-                    <div class="card shadow-lg border-light">
-                        <div class="card-body text-center">
+                    <div class="card card-panel text-center">
+                        <div class="card-body">
+                            <i class="fas fa-user-shield fa-2x text-info mb-3"></i>
                             <h5 class="card-title">Seguridad y Usuarios</h5>
                             <p class="card-text">Gestiona permisos y accesos de los usuarios.</p>
-                            <a href="@Url.Action("Seguridad", "Home")" class="btn btn-info text-white">Administrar Usuarios</a>
+                            <a href="@Url.Action("Seguridad", "Home")" class="btn btn-outline-info">Administrar Usuarios</a>
                         </div>
                     </div>
                 </div>
@@ -216,7 +256,9 @@
         </div>
     </section>
 
-<!-- Script para gráfico de citas -->
+</div>
+
+<!-- Gráfico -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     var ctx = document.getElementById('citasPorHora').getContext('2d');
@@ -234,9 +276,7 @@
         },
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+                y: { beginAtZero: true }
             }
         }
     });

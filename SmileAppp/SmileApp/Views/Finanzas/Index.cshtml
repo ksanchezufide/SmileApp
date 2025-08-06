@@ -7,41 +7,98 @@
 
     Func<decimal, string> formatearColones = valor => $"₡{valor:N2}".Replace(",", "X").Replace(".", ",").Replace("X", ".");
 }
+<style>
+    .card-finanzas {
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: none;
+    }
 
-<div class="container mt-5">
+        .card-finanzas:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+    .finanzas-header {
+        background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .finanzas-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    .btn-finanzas {
+        min-width: 130px;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-finanzas:hover {
+            filter: brightness(0.9);
+        }
+</style>
+
+<!-- Agrega el CDN de FontAwesome si no está aún -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="container-fluid py-4">
+
     <!-- Encabezado -->
-    <div class="text-center mb-4">
-        <div class="bg-info text-white py-4 rounded shadow">
-            <h2 class="fw-bold">Módulo de Finanzas</h2>
-            <p class="mb-0">Gestiona los ingresos y gastos de la clínica de forma eficiente.</p>
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="finanzas-header text-center shadow">
+                <div class="finanzas-avatar">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h2 class="fw-bold mb-1"><i class="fas fa-chart-line me-2"></i>Módulo de Finanzas</h2>
+                <p class="mb-0">Gestiona los ingresos y gastos de la clínica de forma eficiente.</p>
+            </div>
         </div>
     </div>
 
     <!-- Resumen General -->
-    <h3 class="text-center fw-bold mb-4">Resumen General</h3>
-    <div class="row justify-content-center mb-4">
+    <h3 class="text-center fw-bold mb-4"><i class="fas fa-file-invoice-dollar me-2"></i>Resumen General</h3>
+    <div class="row justify-content-center mb-4 g-3">
         <div class="col-md-3">
-            <div class="card text-white bg-success shadow">
+            <div class="card card-finanzas bg-success bg-gradient text-white shadow">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Total Ingresos</h5>
+                    <h5 class="card-title"><i class="fas fa-arrow-up me-2"></i>Total Ingresos</h5>
                     <p class="h4">@formatearColones(totalIngresos)</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-danger shadow">
+            <div class="card card-finanzas bg-danger bg-gradient text-white shadow">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Total Gastos</h5>
+                    <h5 class="card-title"><i class="fas fa-arrow-down me-2"></i>Total Gastos</h5>
                     <p class="h4">@formatearColones(totalGastos)</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-info shadow">
+            <div class="card card-finanzas bg-info bg-gradient text-white shadow">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Balance</h5>
+                    <h5 class="card-title"><i class="fas fa-balance-scale me-2"></i>Balance</h5>
                     <p class="h4">@formatearColones(balance)</p>
                 </div>
             </div>
@@ -50,9 +107,10 @@
 
     <!-- Botones -->
     <div class="text-center mb-4">
-        <a asp-action="Ingresos" class="btn btn-success me-2">Ver Ingresos</a>
-        <a asp-action="Gastos" class="btn btn-danger">Ver Gastos</a>
+        <a asp-action="Ingresos" class="btn btn-success btn-finanzas me-3"><i class="fas fa-hand-holding-dollar me-1"></i>Ver Ingresos</a>
+        <a asp-action="Gastos" class="btn btn-danger btn-finanzas"><i class="fas fa-file-invoice-dollar me-1"></i>Ver Gastos</a>
     </div>
 
     <p class="text-center text-muted">Accede a las vistas detalladas para agregar, editar o consultar transacciones.</p>
+
 </div>
