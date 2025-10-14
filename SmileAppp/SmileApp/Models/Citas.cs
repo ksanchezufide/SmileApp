@@ -12,6 +12,8 @@ namespace SmileApp.Models
 
         public string NombrePaciente { get; set; } // ← NUEVO campo en lugar de PacienteId
 
+        public string CorreoPaciente { get; set; }
+
         public string Motivo { get; set; }
 
         public string Observaciones { get; set; }
