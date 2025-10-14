@@ -1,17 +1,112 @@
-# Carpetas de Visual Studio
-.vs
+# ============================================
+# .NET / Visual Studio Optimized .gitignore
+# Proyecto: SmileApp (.NET 8 MVC)
+# ============================================
 
-# Archivos de usuario y depuración
-.user
-.suo
+# Compilación y binarios
+[Bb]in/
+[Oo]bj/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Bb]uild/
+[Bb]ld/
+[Ll]ogs/
+*.pdb
+*.exe
+*.dll
+*.appx
+*.cache
+*.manifest
 
-# Directorios de compilación
-bin
-obj
+# Publicaciones y publicación local
+publish/
+wwwroot/lib/
+node_modules/
+dist/
+bundle/
+npm-debug.log*
 
-# Config local
-.dbmdl
-.log
-.tmp
-.bak
-.local.json
+# Archivos de usuario y de IDE
+*.user
+*.suo
+*.userosscache
+*.userprefs
+*.vs/
+.vscode/
+*.ncb
+*.dbmdl
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# Archivos temporales del sistema
+[Tt]humbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.bak
+*.swp
+*.log
+
+# Archivos de configuración local
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Copias de seguridad
+*.bak
+*.old
+*.orig
+
+# Archivos de prueba y cobertura
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+*.testsettings
+*.vspscc
+
+# Archivos de control de versiones innecesarios
+*.gitignore.swp
+*.gitattributes.swp
+
+# Archivos de publicación y empaquetado
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Archivos multimedia grandes (evita errores GH001)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.iso
+*.img
+*.mp3
+*.wav
+
+# Archivos de base de datos o backups locales
+*.mdf
+*.ldf
+*.bak
+*.sql
+
+# Archivos de entorno / OS
+.DS_Store
+Icon?
+ehthumbs.db
+Desktop.ini
+
+# Otros archivos de desarrollo
+.env
+.env.local
+*.csproj.user
+*.sln.docstates
+*.idea/

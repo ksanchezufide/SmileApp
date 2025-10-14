@@ -29,11 +29,14 @@ namespace SmileApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Usuario usuario)
         {
+            ModelState.Remove("Rol");
+
             if (ModelState.IsValid)
             {
                 usuario.FechaRegistro = DateTime.Now;
                 usuario.Estado = true;
-                usuario.ContraseñaHash = usuario.ContraseñaHash; // Reemplazar con hashing real si aplica
+
+                _context.Entry(usuario).Property(u => u.FechaRegistro).CurrentValue = DateTime.Now;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Seguridad", "Home");
@@ -42,6 +45,7 @@ namespace SmileApp.Controllers
             ViewData["RolId"] = new SelectList(_context.Roles, "Id", "Nombre", usuario.RolId);
             return View(usuario);
         }
+
 
         public async Task<IActionResult> Edit(int id)
         {
@@ -56,26 +60,42 @@ namespace SmileApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Usuario usuario)
         {
-            if (id != usuario.Id) return NotFound();
+            ModelState.Remove("Rol");
+
+            if (id != usuario.Id)
+                return NotFound();
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var usuarioExistente = await _context.Usuarios
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(u => u.Id == id);
+
+                    if (usuarioExistente == null)
+                        return NotFound();
+
+                    usuario.FechaRegistro = usuarioExistente.FechaRegistro;
+                    usuario.Estado = usuarioExistente.Estado;
+
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_context.Usuarios.Any(u => u.Id == id)) return NotFound();
+                    if (!_context.Usuarios.Any(u => u.Id == id))
+                        return NotFound();
                     throw;
                 }
                 return RedirectToAction("Seguridad", "Home");
             }
 
+
             ViewData["RolId"] = new SelectList(_context.Roles, "Id", "Nombre", usuario.RolId);
             return View(usuario);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
